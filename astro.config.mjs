@@ -70,6 +70,9 @@ export default defineConfig({
         // and variant notices from frontmatter — above the article, not baked
         // into any content file.
         PageTitle: './src/components/PageTitle.astro',
+        // Append the "Suggest an edit" affordance below the default footer on
+        // every doc page (see src/components/Footer.astro).
+        Footer: './src/components/Footer.astro',
       },
       customCss: ['./src/styles/custom.css'],
       lastUpdated: true,

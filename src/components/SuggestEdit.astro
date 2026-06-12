@@ -1,0 +1,405 @@
+---
+// "Suggest an edit" — a lightweight, no-auth way for any reader to send an edit
+// suggestion that lands as a GitHub Issue (via /api/suggest-edit). Rendered once
+// per doc page from the Footer override, so it appears on every doc page,
+// including translated ones. The current page's title, language, and URL are
+// captured automatically — the reader never specifies where they are.
+const route = Astro.locals.starlightRoute;
+const pageTitle = route.entry.data.title;
+const pageLang = route.lang;
+---
+
+<div class="suggest-edit" data-page-title={pageTitle} data-page-lang={pageLang}>
+  <button type="button" class="suggest-edit__trigger" data-se-open>
+    <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20h9"></path>
+      <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+    </svg>
+    <span>Suggest an edit</span>
+  </button>
+
+  <dialog class="suggest-edit__dialog" aria-labelledby="se-title">
+    <form class="suggest-edit__form" data-se-form novalidate>
+      <div class="suggest-edit__head">
+        <h2 id="se-title">Suggest an edit</h2>
+        <button type="button" class="suggest-edit__close" data-se-close aria-label="Close">×</button>
+      </div>
+
+      <p class="suggest-edit__intro">
+        Spotted something to fix or improve on this page? Tell us — it goes
+        straight to our issue tracker. No account needed.
+      </p>
+
+      <label>
+        <span>What kind of suggestion?</span>
+        <select name="type" data-se-type>
+          <option value="typo">Typo or wording</option>
+          <option value="factual">Factual correction</option>
+          <option value="translation">Translation issue</option>
+          <option value="broader">Broader suggestion</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Your suggestion</span>
+        <textarea
+          name="suggestion"
+          rows="5"
+          required
+          dir="auto"
+          data-se-suggestion
+          placeholder="Describe the typo, correction, or idea in your own words…"></textarea>
+      </label>
+
+      <div class="suggest-edit__row">
+        <label>
+          <span>Name <em>(optional)</em></span>
+          <input type="text" name="name" autocomplete="name" dir="auto" data-se-name />
+        </label>
+        <label>
+          <span>Email <em>(optional)</em></span>
+          <input type="email" name="email" autocomplete="email" dir="auto" data-se-email />
+        </label>
+      </div>
+
+      {/* Honeypot: visually hidden; real people leave it empty, bots fill it. */}
+      <div class="suggest-edit__hp" aria-hidden="true">
+        <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" data-se-hp /></label>
+      </div>
+
+      <p class="suggest-edit__context">
+        About: <strong>{pageTitle}</strong> <span class="suggest-edit__lang">({pageLang})</span>
+      </p>
+
+      <div class="suggest-edit__actions">
+        <button type="button" class="suggest-edit__btn suggest-edit__btn--ghost" data-se-close>Cancel</button>
+        <button type="submit" class="suggest-edit__btn suggest-edit__btn--primary" data-se-submit>Send suggestion</button>
+      </div>
+
+      <p class="suggest-edit__status" data-se-status role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="suggest-edit__done" data-se-done hidden>
+      <p class="suggest-edit__done-title">✅ Thank you!</p>
+      <p>Your suggestion was submitted — a maintainer will take a look. We appreciate you helping improve the wiki.</p>
+      <p class="suggest-edit__done-link" data-se-donelink></p>
+      <div class="suggest-edit__actions">
+        <button type="button" class="suggest-edit__btn suggest-edit__btn--primary" data-se-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  function initSuggestEdit() {
+    document.querySelectorAll('.suggest-edit').forEach((root) => {
+      if (root.dataset.seInit) return;
+      root.dataset.seInit = '1';
+
+      const dialog = root.querySelector('.suggest-edit__dialog');
+      const form = root.querySelector('[data-se-form]');
+      const doneEl = root.querySelector('[data-se-done]');
+      const doneLink = root.querySelector('[data-se-donelink]');
+      const statusEl = root.querySelector('[data-se-status]');
+      const submitBtn = root.querySelector('[data-se-submit]');
+      const val = (sel) => (root.querySelector(sel)?.value ?? '');
+
+      const pageTitle = root.dataset.pageTitle || document.title;
+      const pageLang = root.dataset.pageLang || document.documentElement.lang || 'en';
+
+      const setStatus = (msg, isError) => {
+        statusEl.textContent = msg || '';
+        statusEl.classList.toggle('is-error', !!isError);
+      };
+
+      const open = () => {
+        form.hidden = false;
+        doneEl.hidden = true;
+        setStatus('');
+        if (typeof dialog.showModal === 'function') dialog.showModal();
+        else dialog.setAttribute('open', '');
+      };
+      const close = () => {
+        if (typeof dialog.close === 'function') dialog.close();
+        else dialog.removeAttribute('open');
+      };
+
+      root.querySelectorAll('[data-se-open]').forEach((b) => b.addEventListener('click', open));
+      root.querySelectorAll('[data-se-close]').forEach((b) => b.addEventListener('click', close));
+      // Click on the backdrop (outside the form) closes the dialog.
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) close();
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const suggestion = val('[data-se-suggestion]').trim();
+        if (!suggestion) {
+          setStatus('Please add a short description first.', true);
+          root.querySelector('[data-se-suggestion]')?.focus();
+          return;
+        }
+
+        const payload = {
+          type: val('[data-se-type]'),
+          suggestion,
+          name: val('[data-se-name]').trim(),
+          email: val('[data-se-email]').trim(),
+          website: val('[data-se-hp]'), // honeypot
+          pageTitle,
+          pageLang,
+          pageUrl: location.href,
+        };
+
+        submitBtn.disabled = true;
+        setStatus('Sending…');
+        try {
+          const res = await fetch('/api/suggest-edit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          const json = await res.json().catch(() => ({}));
+          if (res.ok && json.ok) {
+            form.hidden = true;
+            doneEl.hidden = false;
+            doneLink.textContent = '';
+            if (json.url) {
+              const a = document.createElement('a');
+              a.href = json.url;
+              a.target = '_blank';
+              a.rel = 'noopener noreferrer';
+              a.textContent = 'View your suggestion on GitHub →';
+              doneLink.appendChild(a);
+            }
+            form.reset();
+          } else {
+            setStatus(
+              (json && json.error) || "We couldn't send your suggestion. Please try again.",
+              true
+            );
+          }
+        } catch {
+          setStatus(
+            "We couldn't send your suggestion. Please check your connection and try again.",
+            true
+          );
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    });
+  }
+
+  initSuggestEdit();
+  // Re-initialize after client-side navigation (if view transitions are on).
+  document.addEventListener('astro:page-load', initSuggestEdit);
+</script>
+
+<style>
+  .suggest-edit {
+    margin-top: 2rem;
+  }
+
+  /* The form chrome is English. On RTL pages the dialog still mirrors (fields,
+     buttons, and close button flip), but bidi-isolate each English string so its
+     punctuation orders correctly instead of being displaced. User input fields
+     use dir="auto" so a reader typing Hebrew/Arabic gets RTL alignment. */
+  .suggest-edit__dialog :is(h2, p, label > span, option) {
+    unicode-bidi: plaintext;
+  }
+  .suggest-edit__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--sl-color-gray-3);
+    font: inherit;
+    font-size: var(--sl-text-sm);
+    cursor: pointer;
+  }
+  .suggest-edit__trigger:hover {
+    color: var(--sl-color-white);
+    text-decoration: underline;
+  }
+  .suggest-edit__trigger svg {
+    flex-shrink: 0;
+  }
+
+  .suggest-edit__dialog {
+    width: min(34rem, calc(100vw - 2rem));
+    max-width: 34rem;
+    padding: 0;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.85rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-gray-1, var(--sl-color-white));
+    box-shadow: var(--sl-shadow-lg, 0 10px 40px rgba(0, 0, 0, 0.4));
+  }
+  .suggest-edit__dialog::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px);
+  }
+  .suggest-edit__form,
+  .suggest-edit__done {
+    padding: 1.25rem 1.4rem 1.4rem;
+  }
+
+  .suggest-edit__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .suggest-edit__head h2 {
+    margin: 0;
+    font-size: var(--sl-text-lg);
+    color: var(--sl-color-white);
+  }
+  .suggest-edit__close {
+    border: 0;
+    background: none;
+    color: var(--sl-color-gray-2);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .suggest-edit__close:hover {
+    color: var(--sl-color-white);
+  }
+
+  .suggest-edit__intro {
+    margin: 0.5rem 0 1rem;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+
+  .suggest-edit__form label {
+    display: block;
+    margin-block: 0.7rem;
+    font-size: var(--sl-text-sm);
+  }
+  .suggest-edit__form label > span {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: var(--sl-color-white);
+  }
+  .suggest-edit__form label > span em {
+    font-weight: 400;
+    font-style: normal;
+    color: var(--sl-color-gray-3);
+  }
+  .suggest-edit__form select,
+  .suggest-edit__form textarea,
+  .suggest-edit__form input[type='text'],
+  .suggest-edit__form input[type='email'] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.45rem;
+    background: var(--sl-color-black);
+    color: var(--sl-color-white);
+    font: inherit;
+  }
+  .suggest-edit__form textarea {
+    resize: vertical;
+    min-height: 5.5rem;
+  }
+  .suggest-edit__form :is(select, textarea, input):focus-visible {
+    outline: 2px solid var(--sl-color-accent);
+    outline-offset: 1px;
+    border-color: var(--sl-color-accent);
+  }
+
+  .suggest-edit__row {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .suggest-edit__row label {
+    flex: 1;
+  }
+  @media (max-width: 30rem) {
+    .suggest-edit__row {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  /* Visually-hidden honeypot (direction-agnostic). */
+  .suggest-edit__hp {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .suggest-edit__context {
+    margin: 0.4rem 0 0;
+    font-size: var(--sl-text-xs);
+    color: var(--sl-color-gray-3);
+  }
+  .suggest-edit__lang {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .suggest-edit__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 1.1rem;
+  }
+  .suggest-edit__btn {
+    padding: 0.5rem 1.05rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .suggest-edit__btn--primary {
+    border-color: var(--sl-color-accent);
+    background: var(--sl-color-accent);
+    color: var(--sl-color-text-invert);
+  }
+  .suggest-edit__btn--primary:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+  .suggest-edit__btn--ghost {
+    background: transparent;
+    color: var(--sl-color-white);
+  }
+  .suggest-edit__btn:hover {
+    filter: brightness(1.08);
+  }
+
+  .suggest-edit__status {
+    margin: 0.7rem 0 0;
+    min-height: 1.2em;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+  .suggest-edit__status.is-error {
+    color: #fca5a5;
+  }
+
+  .suggest-edit__done-title {
+    margin: 0 0 0.5rem;
+    font-size: var(--sl-text-lg);
+    font-weight: 700;
+    color: var(--sl-color-white);
+  }
+  .suggest-edit__done p {
+    font-size: var(--sl-text-sm);
+  }
+</style>
