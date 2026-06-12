@@ -1,0 +1,45 @@
+# Editorial control of the sidebar: section grouping, ordering, and labels.
+# Read at build time (astro.config.mjs) and translated into Starlight's sidebar.
+#
+# Each `item` is a wiki slug (the path under content/, minus the language file).
+# The sync step renders the English page at that slug and translations under a
+# locale prefix (e.g. /it/<slug>). Order here is the order shown in the sidebar.
+sections:
+  - title: About FREE
+    items:
+      - about/welcome
+      - about/about-free
+      - about/about-free-foundation
+      - about/how-to-engage
+      - about/a-note-on-this-wiki
+
+  - title: Starter Kit
+    items:
+      - starter-kit/f1-what-is-a-free-chapter
+      - starter-kit/p1-seed-team-checklist
+      - starter-kit/p2-first-public-event-guide
+      - starter-kit/p3-first-general-assembly-guide
+      - starter-kit/p4-second-general-assembly-guide
+      - starter-kit/p5-stewards-phase-1-guide
+
+  - title: Reference
+    items:
+      - reference/code-of-conduct-guidance
+      - reference/digital-comms-norms-guidance
+
+  # Each chapter is a collapsible group (collapsed by default). `overview` is the
+  # chapter's landing page (_chapter.md) and appears as the first item in the
+  # group; `items` are the chapter's documents, nested beneath it. Add a future
+  # chapter by adding another `group:` entry here.
+  - title: Chapters
+    items:
+      - group: Tulsa
+        collapsed: true
+        overview: chapters/tulsa
+        items:
+          - chapters/tulsa/code-of-conduct
+          - chapters/tulsa/digital-comms-norms
+
+  - title: Templates
+    items:
+      - templates/welcome

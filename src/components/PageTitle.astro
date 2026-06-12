@@ -1,0 +1,127 @@
+---
+// Override of Starlight's PageTitle. Renders the page heading, then a metadata
+// block derived entirely from frontmatter (the FREE Wiki frontmatter contract):
+//   - status badge (FR-7)
+//   - machine-translation disclaimer for AI-generated, unverified pages (FR-10)
+//   - translation staleness notice (FR-8)
+//   - chapter-variant relationship note (FR-9)
+//   - English-fallback note when a translation is missing (FR-6)
+// None of this text lives in the content files; it is purely a rendering
+// concern, as the architecture requires.
+
+// Starlight's heading anchor id for the page title (its `<h1>` target).
+const PAGE_TITLE_ID = '_top';
+
+const route = Astro.locals.starlightRoute;
+const { entry, id, locale, isFallback } = route;
+const data = entry.data;
+
+// The English canonical page's slug + URL (locale prefix stripped from id).
+const englishSlug = locale ? id.replace(new RegExp(`^${locale}/`), '') : id;
+const englishHref = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${englishSlug}/`;
+
+// Human-readable name of the current language, in its own language.
+function languageName(code) {
+  try {
+    const name = new Intl.DisplayNames([code], { type: 'language' }).of(code) ?? code;
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  } catch {
+    return code;
+  }
+}
+
+// --- Status badge --------------------------------------------------------
+const STATUS = {
+  published: { label: 'Published', variant: 'status-published' },
+  adopted: { label: 'Adopted', variant: 'status-adopted' },
+  draft: { label: 'Draft', variant: 'status-draft' },
+  'in-progress': { label: 'In progress', variant: 'status-in-progress' },
+  translation: { label: 'Translation', variant: 'status-translation' },
+};
+const status = data.status ? STATUS[data.status] : undefined;
+
+// --- Conditions ----------------------------------------------------------
+const isMachineTranslation =
+  data.translation_method === 'ai-generated' && data.human_verified === false;
+
+const isStale =
+  !!data.translated_from_version &&
+  !!data.canonical_version &&
+  String(data.translated_from_version) !== String(data.canonical_version);
+
+const isChapterVariant = data.section === 'chapters' && data.status === 'adopted';
+const chapterName = data.chapter
+  ? data.chapter.charAt(0).toUpperCase() + data.chapter.slice(1)
+  : undefined;
+
+const showFallbackNote = isFallback && !!locale;
+const currentLangName = languageName(route.lang || locale || 'en');
+---
+
+<h1 id={PAGE_TITLE_ID}>{data.title}</h1>
+
+<div class="fw-meta" not-content>
+  <div class="fw-badges">
+    {status && <span class={`fw-badge fw-badge--${status.variant}`}>{status.label}</span>}
+    {data.version && <span class="fw-badge fw-badge--version">v{data.version}</span>}
+    {data.adopted_date && (
+      <span class="fw-badge fw-badge--muted">Adopted {data.adopted_date}</span>
+    )}
+  </div>
+
+  {isMachineTranslation && (
+    <aside class="fw-callout fw-callout--warning" aria-label="Machine translation notice">
+      <p class="fw-callout__title">Machine translation — unverified</p>
+      <p>
+        This page was translated from English by AI and has <strong>not been
+        checked by a human</strong>. It may contain errors. The
+        <a href={englishHref}>English original</a> is the authoritative version.
+      </p>
+    </aside>
+  )}
+
+  {isStale && (
+    <aside class="fw-callout fw-callout--caution" aria-label="Outdated translation notice">
+      <p>
+        This translation is based on version <strong>{data.translated_from_version}</strong>
+        of the English page, which has since been updated to
+        <strong>{data.canonical_version}</strong>. It may be out of date — see the
+        <a href={englishHref}>English original</a>.
+      </p>
+    </aside>
+  )}
+
+  {showFallbackNote && (
+    <aside class="fw-callout fw-callout--note" aria-label="No translation available">
+      <p>
+        There is no {currentLangName} translation of this page yet, so the English
+        original is shown.
+      </p>
+    </aside>
+  )}
+
+  {isChapterVariant && (
+    <aside class="fw-callout fw-callout--note" aria-label="Chapter adaptation notice">
+      <p>
+        This is {chapterName ?? 'a chapter'}'s own <strong>adopted</strong> version of this
+        governance document — an adaptation maintained by the chapter, not a central
+        canonical text.
+        {data.adapted_from && (
+          <> It was adapted from the <a href={`/${String(data.adapted_from).replace(/\/en\.md$/, '/')}`}>canonical reference</a>.</>
+        )}
+      </p>
+    </aside>
+  )}
+</div>
+
+<style>
+  @layer starlight.core {
+    h1 {
+      margin-top: 1rem;
+      font-size: var(--sl-text-h1);
+      line-height: var(--sl-line-height-headings);
+      font-weight: 600;
+      color: var(--sl-color-white);
+    }
+  }
+</style>

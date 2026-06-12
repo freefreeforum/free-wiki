@@ -1,0 +1,102 @@
+/* FREE Wiki theme tweaks + the status badges and frontmatter callouts rendered
+   by src/components/PageTitle.astro. Colors are defined against Starlight's CSS
+   variables so they adapt to light/dark themes and meet contrast (NFR-2). */
+
+:root {
+  /* A calm, civic accent. Override Starlight's default purple. */
+  --sl-color-accent-low: #15303a;
+  --sl-color-accent: #2b7a8c;
+  --sl-color-accent-high: #b9e3ec;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #d4eef3;
+  --sl-color-accent: #1f6072;
+  --sl-color-accent-high: #123b46;
+}
+
+/* --- Metadata block under the page title --------------------------------- */
+.fw-meta {
+  margin-block: 0.75rem 1.5rem;
+}
+
+.fw-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.fw-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--sl-text-xs);
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--sl-color-gray-5);
+  color: var(--sl-color-white);
+  background: var(--sl-color-gray-6);
+}
+
+.fw-badge--status-published {
+  color: #052e16;
+  background: #bbf7d0;
+  border-color: #86efac;
+}
+.fw-badge--status-adopted {
+  color: #082f49;
+  background: #bae6fd;
+  border-color: #7dd3fc;
+}
+.fw-badge--status-draft,
+.fw-badge--status-in-progress {
+  color: #422006;
+  background: #fde68a;
+  border-color: #fcd34d;
+}
+.fw-badge--status-translation {
+  color: #2e1065;
+  background: #ddd6fe;
+  border-color: #c4b5fd;
+}
+.fw-badge--version {
+  font-variant-numeric: tabular-nums;
+}
+.fw-badge--muted {
+  color: var(--sl-color-gray-2);
+  background: transparent;
+}
+
+/* --- Frontmatter callouts (disclaimer / staleness / variant / fallback) --- */
+.fw-callout {
+  border-inline-start: 4px solid var(--sl-color-asides-border, var(--sl-color-accent));
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  margin-block: 0.75rem;
+  background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+  font-size: var(--sl-text-sm);
+}
+.fw-callout p {
+  margin: 0.25rem 0;
+}
+.fw-callout__title {
+  font-weight: 700;
+  margin-top: 0 !important;
+}
+.fw-callout a {
+  font-weight: 600;
+}
+
+.fw-callout--warning {
+  border-color: #f59e0b;
+  background: color-mix(in srgb, #f59e0b 12%, var(--sl-color-bg));
+}
+.fw-callout--caution {
+  border-color: #f97316;
+  background: color-mix(in srgb, #f97316 10%, var(--sl-color-bg));
+}
+.fw-callout--note {
+  border-color: var(--sl-color-accent);
+  background: color-mix(in srgb, var(--sl-color-accent) 10%, var(--sl-color-bg));
+}
