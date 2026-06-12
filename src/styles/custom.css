@@ -100,3 +100,73 @@
   border-color: var(--sl-color-accent);
   background: color-mix(in srgb, var(--sl-color-accent) 10%, var(--sl-color-bg));
 }
+
+/* --- Welcome-page language hero (prominent on-page language selector) ------ */
+.lang-hero {
+  margin: 1rem 0 1.75rem;
+  padding: 1rem 1.15rem 1.15rem;
+  border: 1px solid var(--sl-color-accent);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--sl-color-accent) 9%, var(--sl-color-bg));
+}
+.lang-hero__label {
+  margin: 0 0 0.7rem;
+  font-size: var(--sl-text-base);
+  font-weight: 700;
+  color: var(--sl-color-white);
+}
+.lang-hero__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lang-hero__list > li {
+  margin: 0;
+  padding: 0;
+}
+.lang-hero__option {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.05rem;
+  border: 1.5px solid var(--sl-color-accent);
+  border-radius: 999px;
+  font-size: var(--sl-text-base);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--sl-color-white);
+  background: var(--sl-color-bg);
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.05s ease;
+}
+.lang-hero__option:hover,
+.lang-hero__option:focus-visible {
+  background: var(--sl-color-accent);
+  color: var(--sl-color-text-invert);
+  transform: translateY(-1px);
+}
+.lang-hero__option:active {
+  transform: translateY(0);
+}
+.lang-hero__option.is-current {
+  background: var(--sl-color-accent);
+  color: var(--sl-color-text-invert);
+  cursor: default;
+}
+.lang-hero__option.is-current::after {
+  content: '✓';
+  margin-inline-start: 0.4rem;
+  font-weight: 700;
+}
+
+/* Centered variant — used on the home splash, below the hero buttons. */
+.lang-hero--centered {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+.lang-hero--centered .lang-hero__list {
+  justify-content: center;
+}

@@ -1,0 +1,47 @@
+language: ne
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: FREE विकी
+description: FREE — साँचो आर्थिक मुक्तिको मञ्च (Forum for Real Economic Emancipation) को सार्वजनिक ज्ञान भण्डार। स्थानीय सभा सुरु गर्न र सञ्चालन गर्न सुरुवाती किट, सञ्चालन ढाँचाहरू, र शाखा उदाहरणहरू।
+tagline: FREE — साँचो आर्थिक मुक्तिको मञ्च (Forum for Real Economic Emancipation) को सार्वजनिक ज्ञान भण्डार। स्थानीय शाखालाई सुरु गर्न, आफैं सञ्चालन गर्न, र सञ्जालसँग जोडिन चाहिने सबै कुरा।
+language_hero_label: 🌐 यो विकी आफ्नो भाषामा पढ्नुहोस्
+actions:
+  - text: यहाँबाट सुरु गर्नुहोस्
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: सुरुवाती किट खोल्नुहोस्
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: FREE को बारेमा
+    icon: information
+    body: FREE के हो, यसमा कसरी संलग्न हुने, र यो विकी कसरी पढ्ने।
+    link_text: परिचय पढ्नुहोस् →
+    href: /about/welcome/
+  - title: सुरुवाती किट
+    icon: rocket
+    body: शाखा सुरु गर्ने क्रमबद्ध मार्गदर्शन — F1 र P1–P5, पहिलो नब्बे दिन।
+    link_text: F1 बाट सुरु गर्नुहोस् →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: सन्दर्भ
+    icon: document
+    body: आचारसंहिता र डिजिटल सञ्चार मापदण्डहरू अनुकूलन गर्ने मार्गदर्शन।
+    link_text: मार्गदर्शन हेर्नुहोस् →
+    href: /reference/code-of-conduct-guidance/
+  - title: शाखाहरू
+    icon: puzzle
+    body: शाखा-विशिष्ट अनुकूलनहरू। Tulsa संस्थापक प्रायोगिक शाखा हो।
+    link_text: Tulsa हेर्नुहोस् →
+    href: /chapters/tulsa/
+  - title: ढाँचाहरू
+    icon: setting
+    body: नियमित प्रयोग हुने काम गर्ने उपकरणहरू — बैठक कार्यसूची, संक्षेप, साइन-अप पाना (चाँडै आउँदै)।
+    link_text: के योजना छ →
+    href: /templates/welcome/
+  - title: धेरै भाषाहरू
+    icon: translate
+    body: माथिको चयनकर्ता र हेडरबाट पृष्ठहरू धेरै भाषाहरूमा उपलब्ध छन्। अनुवादहरू AI-द्वारा सिर्जित हुन् र स्पष्ट रूपमा चिन्ह लगाइएका छन्; अङ्ग्रेजी सधैं आधिकारिक हुन्छ।

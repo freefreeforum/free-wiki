@@ -1,0 +1,47 @@
+language: zh-Hans
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: FREE 维基
+description: FREE——真正经济解放论坛（Forum for Real Economic Emancipation）的公共知识库。包含入门工具包、治理模板和分会示例，帮助你创建和运营本地议会。
+tagline: FREE——真正经济解放论坛（Forum for Real Economic Emancipation）的公共知识库。本地分会创建、自我治理并与网络相连所需的一切。
+language_hero_label: 🌐 用你的语言阅读本维基
+actions:
+  - text: 从这里开始
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: 打开入门工具包
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: 关于 FREE
+    icon: information
+    body: FREE 是什么、如何参与，以及如何阅读本维基。
+    link_text: 阅读入门指引 →
+    href: /about/welcome/
+  - title: 入门工具包
+    icon: rocket
+    body: 创建分会的分步指南——F1 与 P1–P5，最初的九十天。
+    link_text: 从 F1 开始 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: 参考资料
+    icon: document
+    body: 关于调整《行为准则》和《数字沟通规范》的指引。
+    link_text: 浏览指引 →
+    href: /reference/code-of-conduct-guidance/
+  - title: 分会
+    icon: puzzle
+    body: 各分会的具体调整方案。Tulsa 是创始试点。
+    link_text: 查看 Tulsa →
+    href: /chapters/tulsa/
+  - title: 模板
+    icon: setting
+    body: 可反复使用的工作工具——会议议程、摘要、报名表（即将推出）。
+    link_text: 查看规划 →
+    href: /templates/welcome/
+  - title: 多种语言
+    icon: translate
+    body: 可通过上方及页眉中的选择器以多种语言阅读页面。译文由 AI 生成并明确标注；英文版始终为权威版本。

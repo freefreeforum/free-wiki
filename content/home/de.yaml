@@ -1,0 +1,47 @@
+language: de
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: FREE Wiki
+description: Die öffentliche Wissensdatenbank für FREE – das Forum for Real Economic Emancipation. Starter-Kit, Governance-Vorlagen und Beispiele von Ortsgruppen zum Aufbau und Betrieb einer lokalen Versammlung.
+tagline: Die öffentliche Wissensdatenbank für FREE – das Forum for Real Economic Emancipation. Alles, was eine Ortsgruppe braucht, um zu starten, sich selbst zu organisieren und sich mit dem Netzwerk zu verbinden.
+language_hero_label: 🌐 Lies dieses Wiki in deiner Sprache
+actions:
+  - text: Hier beginnen
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: Das Starter-Kit öffnen
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: Über FREE
+    icon: information
+    body: Was FREE ist, wie du dich einbringen kannst und wie du dieses Wiki liest.
+    link_text: Zur Orientierung →
+    href: /about/welcome/
+  - title: Starter-Kit
+    icon: rocket
+    body: Die schrittweise Anleitung zum Aufbau einer Ortsgruppe – F1 und P1–P5, die ersten neunzig Tage.
+    link_text: Mit F1 beginnen →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: Referenz
+    icon: document
+    body: Hinweise zur Anpassung des Verhaltenskodex und der Normen für digitale Kommunikation.
+    link_text: Hinweise durchsehen →
+    href: /reference/code-of-conduct-guidance/
+  - title: Ortsgruppen
+    icon: puzzle
+    body: Ortsgruppen-spezifische Anpassungen. Tulsa ist das Gründungs-Pilotprojekt.
+    link_text: Tulsa ansehen →
+    href: /chapters/tulsa/
+  - title: Vorlagen
+    icon: setting
+    body: Wiederkehrend genutzte Arbeitsmittel – Sitzungsagenden, Zusammenfassungen, Anmeldelisten (in Kürze verfügbar).
+    link_text: Was geplant ist →
+    href: /templates/welcome/
+  - title: Viele Sprachen
+    icon: translate
+    body: Seiten sind über die Auswahl oben und im Kopfbereich in mehreren Sprachen verfügbar. Übersetzungen sind KI-generiert und klar gekennzeichnet; das Englische ist stets maßgeblich.

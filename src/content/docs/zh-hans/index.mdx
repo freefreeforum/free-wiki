@@ -1,0 +1,60 @@
+---
+title: FREE 维基
+description: FREE——真正经济解放论坛（Forum for Real Economic Emancipation）的公共知识库。包含入门工具包、治理模板和分会示例，帮助你创建和运营本地议会。
+template: splash
+hero:
+  tagline: FREE——真正经济解放论坛（Forum for Real Economic Emancipation）的公共知识库。本地分会创建、自我治理并与网络相连所需的一切。
+  actions:
+    - text: 从这里开始
+      link: /zh-hans/about/welcome/
+      icon: right-arrow
+      variant: primary
+    - text: 打开入门工具包
+      link: /zh-hans/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: zh-Hans
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 用你的语言阅读本维基"} />
+
+<CardGrid>
+  <Card title={"关于 FREE"} icon="information">
+    FREE 是什么、如何参与，以及如何阅读本维基。
+
+    [阅读入门指引 →](/zh-hans/about/welcome/)
+  </Card>
+  <Card title={"入门工具包"} icon="rocket">
+    创建分会的分步指南——F1 与 P1–P5，最初的九十天。
+
+    [从 F1 开始 →](/zh-hans/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"参考资料"} icon="document">
+    关于调整《行为准则》和《数字沟通规范》的指引。
+
+    [浏览指引 →](/zh-hans/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"分会"} icon="puzzle">
+    各分会的具体调整方案。Tulsa 是创始试点。
+
+    [查看 Tulsa →](/zh-hans/chapters/tulsa/)
+  </Card>
+  <Card title={"模板"} icon="setting">
+    可反复使用的工作工具——会议议程、摘要、报名表（即将推出）。
+
+    [查看规划 →](/zh-hans/templates/welcome/)
+  </Card>
+  <Card title={"多种语言"} icon="translate">
+    可通过上方及页眉中的选择器以多种语言阅读页面。译文由 AI 生成并明确标注；英文版始终为权威版本。
+  </Card>
+</CardGrid>

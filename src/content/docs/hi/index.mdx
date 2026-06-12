@@ -1,0 +1,60 @@
+---
+title: FREE विकी
+description: FREE — फोरम फॉर रियल इकोनॉमिक इमैंसिपेशन — का सार्वजनिक ज्ञान-कोष। एक स्थानीय सभा शुरू करने और चलाने के लिए स्टार्टर किट, शासन-टेम्पलेट और चैप्टर उदाहरण।
+template: splash
+hero:
+  tagline: FREE — फोरम फॉर रियल इकोनॉमिक इमैंसिपेशन — का सार्वजनिक ज्ञान-कोष। एक स्थानीय चैप्टर को शुरू करने, स्वयं का शासन करने और नेटवर्क से जुड़ने के लिए आवश्यक सब कुछ।
+  actions:
+    - text: यहाँ से शुरू करें
+      link: /hi/about/welcome/
+      icon: right-arrow
+      variant: primary
+    - text: स्टार्टर किट खोलें
+      link: /hi/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: hi
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 इस विकी को अपनी भाषा में पढ़ें"} />
+
+<CardGrid>
+  <Card title={"FREE के बारे में"} icon="information">
+    FREE क्या है, कैसे जुड़ें, और इस विकी को कैसे पढ़ें।
+
+    [परिचय पढ़ें →](/hi/about/welcome/)
+  </Card>
+  <Card title={"स्टार्टर किट"} icon="rocket">
+    एक चैप्टर शुरू करने की क्रमबद्ध मार्गदर्शिका — F1 और P1–P5, पहले नब्बे दिन।
+
+    [F1 से शुरू करें →](/hi/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"संदर्भ"} icon="document">
+    आचार संहिता और डिजिटल संचार मानदंडों को अनुकूलित करने के लिए मार्गदर्शन।
+
+    [मार्गदर्शन देखें →](/hi/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"चैप्टर"} icon="puzzle">
+    चैप्टर-विशिष्ट अनुकूलन। Tulsa संस्थापक पायलट है।
+
+    [Tulsa देखें →](/hi/chapters/tulsa/)
+  </Card>
+  <Card title={"टेम्पलेट"} icon="setting">
+    बार-बार उपयोग होने वाले कार्य-उपकरण — बैठक की कार्यसूची, सारांश, साइन-अप शीट (जल्द आ रहे हैं)।
+
+    [क्या योजना है →](/hi/templates/welcome/)
+  </Card>
+  <Card title={"कई भाषाएँ"} icon="translate">
+    पृष्ठ ऊपर दिए गए चयनकर्ता और हेडर में कई भाषाओं में उपलब्ध हैं। अनुवाद AI-जनित हैं और स्पष्ट रूप से चिह्नित किए गए हैं; अंग्रेज़ी हमेशा प्रामाणिक है।
+  </Card>
+</CardGrid>

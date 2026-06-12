@@ -1,0 +1,47 @@
+language: it
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: FREE Wiki
+description: La base di conoscenza pubblica di FREE — il Forum per la Vera Emancipazione Economica. Kit di avvio, modelli di governance ed esempi di sezioni locali per fondare e gestire un'assemblea locale.
+tagline: La base di conoscenza pubblica di FREE — il Forum per la Vera Emancipazione Economica. Tutto ciò che serve a una sezione locale per nascere, autogovernarsi e collegarsi alla rete.
+language_hero_label: 🌐 Leggi questa wiki nella tua lingua
+actions:
+  - text: Inizia da qui
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: Apri il Kit di avvio
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: Cos'è FREE
+    icon: information
+    body: Cos'è FREE, come partecipare e come leggere questa wiki.
+    link_text: Leggi l'orientamento →
+    href: /about/welcome/
+  - title: Kit di avvio
+    icon: rocket
+    body: La guida passo passo per fondare una sezione locale — F1 e P1–P5, i primi novanta giorni.
+    link_text: Comincia con F1 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: Riferimenti
+    icon: document
+    body: Indicazioni per adattare il Codice di Condotta e le Norme di Comunicazione Digitale.
+    link_text: Sfoglia le indicazioni →
+    href: /reference/code-of-conduct-guidance/
+  - title: Sezioni locali
+    icon: puzzle
+    body: Adattamenti specifici per ciascuna sezione. Tulsa è il progetto pilota fondatore.
+    link_text: Vedi Tulsa →
+    href: /chapters/tulsa/
+  - title: Modelli
+    icon: setting
+    body: Strumenti di lavoro di uso ricorrente — ordini del giorno, sintesi, fogli per le adesioni (in arrivo).
+    link_text: Cosa è previsto →
+    href: /templates/welcome/
+  - title: Molte lingue
+    icon: translate
+    body: Le pagine sono disponibili in diverse lingue tramite il selettore in alto e nell'intestazione. Le traduzioni sono generate dall'IA e chiaramente indicate; la versione in inglese fa sempre fede.

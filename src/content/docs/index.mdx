@@ -16,30 +16,37 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../components/LanguageHero.astro';
+
+<LanguageHero slug="" centered label={"🌐 Read this wiki in your language"} />
 
 <CardGrid>
-  <Card title="About FREE" icon="information">
+  <Card title={"About FREE"} icon="information">
     What FREE is, how to engage, and how to read this wiki.
+
     [Read the orientation →](/about/welcome/)
   </Card>
-  <Card title="Starter Kit" icon="rocket">
+  <Card title={"Starter Kit"} icon="rocket">
     The sequenced guide to starting a chapter — F1 and P1–P5, the first ninety days.
+
     [Begin with F1 →](/starter-kit/f1-what-is-a-free-chapter/)
   </Card>
-  <Card title="Reference" icon="document">
+  <Card title={"Reference"} icon="document">
     Guidance for adapting the Code of Conduct and Digital Communication Norms.
+
     [Browse guidance →](/reference/code-of-conduct-guidance/)
   </Card>
-  <Card title="Chapters" icon="puzzle">
+  <Card title={"Chapters"} icon="puzzle">
     Chapter-specific adaptations. Tulsa is the founding pilot.
+
     [See Tulsa →](/chapters/tulsa/)
   </Card>
-  <Card title="Templates" icon="setting">
+  <Card title={"Templates"} icon="setting">
     Recurring-use working tools — meeting agendas, synopses, sign-up sheets (coming soon).
+
     [What's planned →](/templates/welcome/)
   </Card>
-  <Card title="Many languages" icon="translate">
-    Pages are available in several languages via the selector at the top. Translations
-    are AI-generated and clearly marked; English is always authoritative.
+  <Card title={"Many languages"} icon="translate">
+    Pages are available in several languages via the selector above and in the header. Translations are AI-generated and clearly marked; English is always authoritative.
   </Card>
 </CardGrid>

@@ -1,0 +1,47 @@
+language: pt
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: FREE Wiki
+description: A base de conhecimento pública do FREE — o Fórum pela Emancipação Económica Real. Kit Inicial, modelos de governação e exemplos de núcleos para iniciar e gerir uma assembleia local.
+tagline: A base de conhecimento pública do FREE — o Fórum pela Emancipação Económica Real. Tudo o que um núcleo local precisa para começar, governar-se e ligar-se à rede.
+language_hero_label: 🌐 Lê esta wiki na tua língua
+actions:
+  - text: Começa aqui
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: Abrir o Kit Inicial
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: Sobre o FREE
+    icon: information
+    body: O que é o FREE, como participar e como ler esta wiki.
+    link_text: Lê a orientação →
+    href: /about/welcome/
+  - title: Kit Inicial
+    icon: rocket
+    body: O guia sequenciado para iniciar um núcleo — F1 e P1–P5, os primeiros noventa dias.
+    link_text: Começa com o F1 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: Referência
+    icon: document
+    body: Orientações para adaptar o Código de Conduta e as Normas de Comunicação Digital.
+    link_text: Consulta as orientações →
+    href: /reference/code-of-conduct-guidance/
+  - title: Núcleos
+    icon: puzzle
+    body: Adaptações específicas de cada núcleo. Tulsa é o piloto fundador.
+    link_text: Vê Tulsa →
+    href: /chapters/tulsa/
+  - title: Modelos
+    icon: setting
+    body: Ferramentas de trabalho de uso recorrente — ordens de trabalhos, sínteses, folhas de inscrição (em breve).
+    link_text: O que está planeado →
+    href: /templates/welcome/
+  - title: Várias línguas
+    icon: translate
+    body: As páginas estão disponíveis em várias línguas através do seletor acima e no cabeçalho. As traduções são geradas por IA e claramente assinaladas; o inglês é sempre a versão de referência.

@@ -1,0 +1,47 @@
+language: es
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: Wiki de FREE
+description: La base de conocimiento pública de FREE — el Foro por la Emancipación Económica Real. Kit de Inicio, plantillas de gobernanza y ejemplos de capítulos para iniciar y gestionar una asamblea local.
+tagline: La base de conocimiento pública de FREE — el Foro por la Emancipación Económica Real. Todo lo que un capítulo local necesita para iniciarse, gobernarse a sí mismo y conectarse con la red.
+language_hero_label: 🌐 Lee esta wiki en tu idioma
+actions:
+  - text: Comienza aquí
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: Abre el Kit de Inicio
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: Acerca de FREE
+    icon: information
+    body: Qué es FREE, cómo participar y cómo leer esta wiki.
+    link_text: Lee la orientación →
+    href: /about/welcome/
+  - title: Kit de Inicio
+    icon: rocket
+    body: La guía secuenciada para iniciar un capítulo — F1 y P1–P5, los primeros noventa días.
+    link_text: Empieza con F1 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: Referencia
+    icon: document
+    body: Orientación para adaptar el Código de Conducta y las Normas de Comunicación Digital.
+    link_text: Explora la orientación →
+    href: /reference/code-of-conduct-guidance/
+  - title: Capítulos
+    icon: puzzle
+    body: Adaptaciones específicas de cada capítulo. Tulsa es el piloto fundador.
+    link_text: Ver Tulsa →
+    href: /chapters/tulsa/
+  - title: Plantillas
+    icon: setting
+    body: Herramientas de trabajo de uso recurrente — órdenes del día de reuniones, resúmenes, hojas de inscripción (próximamente).
+    link_text: Lo que está planeado →
+    href: /templates/welcome/
+  - title: Muchos idiomas
+    icon: translate
+    body: Las páginas están disponibles en varios idiomas mediante el selector de arriba y en el encabezado. Las traducciones son generadas por IA y están claramente marcadas; el inglés siempre es la versión autorizada.

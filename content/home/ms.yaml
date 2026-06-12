@@ -1,0 +1,47 @@
+language: ms
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: Wiki FREE
+description: Pangkalan pengetahuan awam untuk FREE — Forum untuk Pembebasan Ekonomi Sebenar. Kit Permulaan, templat tadbir urus, dan contoh cawangan untuk memulakan dan menjalankan perhimpunan tempatan.
+tagline: Pangkalan pengetahuan awam untuk FREE — Forum untuk Pembebasan Ekonomi Sebenar. Segala yang diperlukan oleh sesebuah cawangan tempatan untuk bermula, mentadbir diri, dan berhubung dengan rangkaian.
+language_hero_label: 🌐 Baca wiki ini dalam bahasa anda
+actions:
+  - text: Mulakan di sini
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: Buka Kit Permulaan
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: Mengenai FREE
+    icon: information
+    body: Apa itu FREE, cara melibatkan diri, dan cara membaca wiki ini.
+    link_text: Baca panduan orientasi →
+    href: /about/welcome/
+  - title: Kit Permulaan
+    icon: rocket
+    body: Panduan berturutan untuk memulakan sesebuah cawangan — F1 dan P1–P5, sembilan puluh hari pertama.
+    link_text: Mulakan dengan F1 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: Rujukan
+    icon: document
+    body: Panduan untuk menyesuaikan Tata Kelakuan dan Norma Komunikasi Digital.
+    link_text: Layari panduan →
+    href: /reference/code-of-conduct-guidance/
+  - title: Cawangan
+    icon: puzzle
+    body: Penyesuaian khusus cawangan. Tulsa ialah perintis pengasas.
+    link_text: Lihat Tulsa →
+    href: /chapters/tulsa/
+  - title: Templat
+    icon: setting
+    body: Alat kerja kegunaan berulang — agenda mesyuarat, ringkasan, helaian pendaftaran (akan datang).
+    link_text: Apa yang dirancang →
+    href: /templates/welcome/
+  - title: Pelbagai bahasa
+    icon: translate
+    body: Halaman tersedia dalam beberapa bahasa melalui pemilih di atas dan dalam pengepala. Terjemahan dijana oleh AI dan ditanda dengan jelas; versi Bahasa Inggeris sentiasa berautoriti.

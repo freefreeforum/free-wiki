@@ -1,0 +1,21 @@
+---
+// The machine-translation disclaimer for AI-generated, unverified pages, as a
+// standalone component. PageTitle.astro renders this same notice on content
+// pages; the splash/home uses Starlight's `splash` template (no PageTitle), so
+// the generated per-locale homes include this component directly to get the
+// identical unverified-translation handling.
+interface Props {
+  /** URL of the authoritative English original (the English home is "/"). */
+  englishHref?: string;
+}
+const { englishHref = '/' } = Astro.props;
+---
+
+<aside class="fw-callout fw-callout--warning" aria-label="Machine translation notice" not-content>
+  <p class="fw-callout__title">Machine translation — unverified</p>
+  <p>
+    This page was translated from English by AI and has <strong>not been checked
+    by a human</strong>. It may contain errors. The
+    <a href={englishHref}>English original</a> is the authoritative version.
+  </p>
+</aside>

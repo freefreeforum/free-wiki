@@ -1,0 +1,60 @@
+---
+title: FREE Wiki
+description: ฐานความรู้สาธารณะของ FREE — เวทีเพื่อการปลดปล่อยทางเศรษฐกิจที่แท้จริง (Forum for Real Economic Emancipation) ชุดเริ่มต้น เทมเพลตการบริหารจัดการ และตัวอย่างสาขาสำหรับการเริ่มต้นและดำเนินการสภาท้องถิ่น
+template: splash
+hero:
+  tagline: ฐานความรู้สาธารณะของ FREE — เวทีเพื่อการปลดปล่อยทางเศรษฐกิจที่แท้จริง (Forum for Real Economic Emancipation) ทุกสิ่งที่สาขาท้องถิ่นจำเป็นต้องใช้เพื่อเริ่มต้น บริหารจัดการตนเอง และเชื่อมต่อกับเครือข่าย
+  actions:
+    - text: เริ่มต้นที่นี่
+      link: /th/about/welcome/
+      icon: right-arrow
+      variant: primary
+    - text: เปิดชุดเริ่มต้น
+      link: /th/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: th
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 อ่านวิกินี้ในภาษาของคุณ"} />
+
+<CardGrid>
+  <Card title={"เกี่ยวกับ FREE"} icon="information">
+    FREE คืออะไร จะเข้าร่วมได้อย่างไร และจะอ่านวิกินี้อย่างไร
+
+    [อ่านบทแนะนำเบื้องต้น →](/th/about/welcome/)
+  </Card>
+  <Card title={"ชุดเริ่มต้น"} icon="rocket">
+    คู่มือเรียงลำดับขั้นตอนสำหรับการเริ่มต้นสาขา — F1 และ P1–P5 เก้าสิบวันแรก
+
+    [เริ่มต้นด้วย F1 →](/th/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"เอกสารอ้างอิง"} icon="document">
+    แนวทางสำหรับการปรับใช้จรรยาบรรณและบรรทัดฐานการสื่อสารทางดิจิทัล
+
+    [เรียกดูแนวทาง →](/th/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"สาขา"} icon="puzzle">
+    การปรับใช้เฉพาะสาขา Tulsa เป็นสาขานำร่องแรกเริ่ม
+
+    [ดู Tulsa →](/th/chapters/tulsa/)
+  </Card>
+  <Card title={"เทมเพลต"} icon="setting">
+    เครื่องมือใช้งานที่ใช้ซ้ำเป็นประจำ — วาระการประชุม บทสรุป ใบลงชื่อ (เร็วๆ นี้)
+
+    [สิ่งที่วางแผนไว้ →](/th/templates/welcome/)
+  </Card>
+  <Card title={"หลายภาษา"} icon="translate">
+    หน้าต่างๆ มีให้บริการในหลายภาษาผ่านตัวเลือกด้านบนและในส่วนหัว คำแปลสร้างขึ้นโดย AI และมีการระบุไว้อย่างชัดเจน ภาษาอังกฤษเป็นฉบับที่ถือเป็นหลักเสมอ
+  </Card>
+</CardGrid>

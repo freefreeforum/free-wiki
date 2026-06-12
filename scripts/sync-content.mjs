@@ -31,13 +31,21 @@ import {
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
+import { parse as parseYaml, stringify as toYaml } from 'yaml';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = join(ROOT, 'content');
 const DOCS = join(ROOT, 'src', 'content', 'docs');
+const HOME_DIR = join(CONTENT, 'home');
 
 const SECTIONS = ['about', 'starter-kit', 'reference', 'chapters', 'templates'];
-const LOCALES = ['en', 'it', 'es', 'pt', 'de', 'fr', 'zh-Hans'];
+// Locales come from config/languages.yaml (the single source) so adding a
+// language there flows through here automatically — classify() will accept its
+// <code>.md files and the home generator will render its index.
+const { languages: CFG_LANGS } = parseYaml(
+  readFileSync(join(ROOT, 'config', 'languages.yaml'), 'utf8')
+);
+const LOCALES = CFG_LANGS.map((l) => l.code);
 const NON_ROOT_LOCALES = LOCALES.filter((l) => l !== 'en');
 
 // --- Discover every content file -----------------------------------------
@@ -134,6 +142,92 @@ function serialize(data, body) {
   return `${lines.join('\n')}\n\n${body.trim()}\n`;
 }
 
+// --- Home / splash generation --------------------------------------------
+// The home is a structured splash (frontmatter hero + cards), not free markdown,
+// so its single source lives in content/home/en.yaml with AI translations as
+// sibling content/home/<locale>.yaml. We render one index page per language so
+// the home switches language like every other page. Internal links are prefixed
+// with the locale; href/icon/variant are structural and never translated.
+function localizeHref(href, localeSeg) {
+  if (!localeSeg) return href;
+  return href.startsWith('/') ? `/${localeSeg}${href}` : href;
+}
+
+function renderHome(home, lang) {
+  const localeSeg = lang.isDefault ? '' : lang.code.toLowerCase();
+  const depth = lang.isDefault ? 2 : 3; // src/content/docs[/<loc>]/index.mdx -> src/components
+  const comp = (name) => `${'../'.repeat(depth)}components/${name}`;
+  const isTranslation = !lang.isDefault && home.translation_method === 'ai-generated';
+
+  const fm = {
+    title: home.title,
+    description: home.description,
+    template: 'splash',
+    hero: {
+      tagline: home.tagline,
+      actions: home.actions.map((a) => ({
+        text: a.text,
+        link: localizeHref(a.href, localeSeg),
+        icon: a.icon,
+        variant: a.variant,
+      })),
+    },
+  };
+  if (isTranslation) {
+    fm.language = home.language || lang.code;
+    fm.status = 'translation';
+    fm.translation_of = 'home/en.yaml';
+    fm.translation_method = 'ai-generated';
+    fm.human_verified = false;
+  }
+
+  const b = [];
+  b.push(`import { Card, CardGrid } from '@astrojs/starlight/components';`);
+  b.push(`import LanguageHero from '${comp('LanguageHero.astro')}';`);
+  if (isTranslation) b.push(`import MachineTranslationNotice from '${comp('MachineTranslationNotice.astro')}';`);
+  b.push('');
+  if (isTranslation) {
+    b.push('<MachineTranslationNotice englishHref="/" />');
+    b.push('');
+  }
+  b.push(`<LanguageHero slug="" centered label={${JSON.stringify(home.language_hero_label)}} />`);
+  b.push('');
+  b.push('<CardGrid>');
+  for (const c of home.cards) {
+    b.push(`  <Card title={${JSON.stringify(c.title)}} icon=${JSON.stringify(c.icon)}>`);
+    b.push(`    ${c.body}`);
+    if (c.link_text && c.href) {
+      b.push('');
+      b.push(`    [${c.link_text}](${localizeHref(c.href, localeSeg)})`);
+    }
+    b.push('  </Card>');
+  }
+  b.push('</CardGrid>');
+
+  return `---\n${toYaml(fm, { lineWidth: 0 }).trimEnd()}\n---\n\n${b.join('\n')}\n`;
+}
+
+function generateHomes() {
+  const enPath = join(HOME_DIR, 'en.yaml');
+  if (!existsSync(enPath)) return 0;
+  let count = 0;
+
+  const en = parseYaml(readFileSync(enPath, 'utf8'));
+  writeFileSync(join(DOCS, 'index.mdx'), renderHome(en, { code: 'en', isDefault: true }), 'utf8');
+  count++;
+
+  for (const loc of NON_ROOT_LOCALES) {
+    const p = join(HOME_DIR, `${loc}.yaml`);
+    if (!existsSync(p)) continue; // untranslated home -> Starlight falls back to English
+    const home = parseYaml(readFileSync(p, 'utf8'));
+    const dir = join(DOCS, loc.toLowerCase());
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, 'index.mdx'), renderHome(home, { code: loc, isDefault: false }), 'utf8');
+    count++;
+  }
+  return count;
+}
+
 // --- Run ------------------------------------------------------------------
 const files = walk(CONTENT).map((p) => ({ path: p, ...classify(p) }));
 
@@ -179,4 +273,5 @@ for (const f of files) {
   written++;
 }
 
-console.log(`Synced ${written} file(s) from content/ -> src/content/docs/`);
+const homes = generateHomes();
+console.log(`Synced ${written} file(s) + ${homes} home page(s) from content/ -> src/content/docs/`);

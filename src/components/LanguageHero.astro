@@ -1,0 +1,67 @@
+---
+// A prominent, on-page language selector shown as a hero element on the Welcome
+// landing page (rendered by PageTitle.astro, scoped to that one page). It lists
+// every supported language by its native name as a big, obviously-clickable
+// pill. Each pill links to the *current* page in that locale — exactly what the
+// header language picker does — so the page flips to the chosen language and
+// Starlight's locale-aware navigation carries the choice through to later pages.
+//
+// The language list (native names + codes) is read from the same
+// config/languages.yaml that drives the header picker, so the two never drift.
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { parse as parseYaml } from 'yaml';
+
+interface Props {
+  /**
+   * The current page's slug with any locale prefix stripped (e.g.
+   * "about/welcome"). Empty string for the site home/landing page.
+   */
+  slug?: string;
+  /** Center the label and chips (used on the centered home splash). */
+  centered?: boolean;
+  /** Heading text above the chips (translated on localized homes). */
+  label?: string;
+}
+const { slug = '', centered = false, label = '🌐 Read this wiki in your language' } = Astro.props;
+const currentLang = Astro.locals.starlightRoute.lang;
+
+const { languages } = parseYaml(
+  readFileSync(fileURLToPath(new URL('../../config/languages.yaml', import.meta.url)), 'utf8')
+);
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// English (the default locale) is served at the root; others under /<code>/.
+// `slug` may be "" (the home page), in which case there is no trailing path.
+const path = slug ? `${slug}/` : '';
+const hrefFor = (lang) =>
+  lang.default ? `${base}/${path}` : `${base}/${lang.code.toLowerCase()}/${path}`;
+---
+
+<section
+  class:list={['lang-hero', { 'lang-hero--centered': centered }]}
+  aria-label="Choose your language"
+  not-content
+>
+  <p class="lang-hero__label">{label}</p>
+  <ul class="lang-hero__list">
+    {
+      languages.map((lang) => {
+        const isCurrent = lang.code === currentLang;
+        return (
+          <li>
+            <a
+              href={hrefFor(lang)}
+              class:list={['lang-hero__option', { 'is-current': isCurrent }]}
+              lang={lang.code}
+              hreflang={lang.code}
+              aria-current={isCurrent ? 'true' : undefined}
+            >
+              {lang.name}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>

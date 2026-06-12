@@ -8,6 +8,7 @@
 //   - English-fallback note when a translation is missing (FR-6)
 // None of this text lives in the content files; it is purely a rendering
 // concern, as the architecture requires.
+import LanguageHero from './LanguageHero.astro';
 
 // Starlight's heading anchor id for the page title (its `<h1>` target).
 const PAGE_TITLE_ID = '_top';
@@ -56,6 +57,10 @@ const chapterName = data.chapter
 
 const showFallbackNote = isFallback && !!locale;
 const currentLangName = languageName(route.lang || locale || 'en');
+
+// Showcase the multilingual capability with a prominent language selector on
+// the Welcome landing page only (the same slug in every locale).
+const isWelcome = englishSlug === 'about/welcome';
 ---
 
 <h1 id={PAGE_TITLE_ID}>{data.title}</h1>
@@ -113,6 +118,8 @@ const currentLangName = languageName(route.lang || locale || 'en');
     </aside>
   )}
 </div>
+
+{isWelcome && <LanguageHero slug={englishSlug} />}
 
 <style>
   @layer starlight.core {

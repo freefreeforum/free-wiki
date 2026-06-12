@@ -1,0 +1,60 @@
+---
+title: FREE Wiki
+description: La base de connaissances publique de FREE — le Forum pour une véritable émancipation économique. Kit de démarrage, modèles de gouvernance et exemples de sections pour fonder et animer une assemblée locale.
+template: splash
+hero:
+  tagline: La base de connaissances publique de FREE — le Forum pour une véritable émancipation économique. Tout ce dont une section locale a besoin pour démarrer, se gouverner et se relier au réseau.
+  actions:
+    - text: Commencer ici
+      link: /fr/about/welcome/
+      icon: right-arrow
+      variant: primary
+    - text: Ouvrir le kit de démarrage
+      link: /fr/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: fr
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 Lire ce wiki dans votre langue"} />
+
+<CardGrid>
+  <Card title={"À propos de FREE"} icon="information">
+    Ce qu'est FREE, comment s'engager et comment lire ce wiki.
+
+    [Lire l'orientation →](/fr/about/welcome/)
+  </Card>
+  <Card title={"Kit de démarrage"} icon="rocket">
+    Le guide séquencé pour fonder une section — F1 et P1–P5, les quatre-vingt-dix premiers jours.
+
+    [Commencer par F1 →](/fr/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"Référence"} icon="document">
+    Conseils pour adapter le Code de conduite et les Normes de communication numérique.
+
+    [Parcourir les conseils →](/fr/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"Sections"} icon="puzzle">
+    Adaptations propres à chaque section. Tulsa est le projet pilote fondateur.
+
+    [Voir Tulsa →](/fr/chapters/tulsa/)
+  </Card>
+  <Card title={"Modèles"} icon="setting">
+    Outils de travail à usage récurrent — ordres du jour de réunion, comptes rendus, feuilles d'inscription (à venir).
+
+    [Ce qui est prévu →](/fr/templates/welcome/)
+  </Card>
+  <Card title={"Plusieurs langues"} icon="translate">
+    Les pages sont disponibles en plusieurs langues grâce au sélecteur ci-dessus et dans l'en-tête. Les traductions sont générées par IA et clairement signalées ; la version anglaise fait toujours foi.
+  </Card>
+</CardGrid>

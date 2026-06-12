@@ -1,0 +1,60 @@
+---
+title: FREE Wiki
+description: FREE（真の経済的解放のためのフォーラム）の公開ナレッジベース。地域の集会を立ち上げ運営するためのスターターキット、ガバナンスのテンプレート、支部の事例を提供します。
+template: splash
+hero:
+  tagline: FREE（真の経済的解放のためのフォーラム）の公開ナレッジベース。地域支部が立ち上げ、自治を行い、ネットワークとつながるために必要なすべてを揃えています。
+  actions:
+    - text: ここから始める
+      link: /ja/about/welcome/
+      icon: right-arrow
+      variant: primary
+    - text: スターターキットを開く
+      link: /ja/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: ja
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 このwikiをあなたの言語で読む"} />
+
+<CardGrid>
+  <Card title={"FREEについて"} icon="information">
+    FREEとは何か、どう関わるか、そしてこのwikiの読み方。
+
+    [オリエンテーションを読む →](/ja/about/welcome/)
+  </Card>
+  <Card title={"スターターキット"} icon="rocket">
+    支部立ち上げのための順を追ったガイド——F1とP1〜P5、最初の90日間。
+
+    [F1から始める →](/ja/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"リファレンス"} icon="document">
+    行動規範とデジタルコミュニケーション規範を適応させるための手引き。
+
+    [手引きを見る →](/ja/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"支部"} icon="puzzle">
+    支部ごとの適応事例。Tulsaが創設パイロットです。
+
+    [Tulsaを見る →](/ja/chapters/tulsa/)
+  </Card>
+  <Card title={"テンプレート"} icon="setting">
+    繰り返し使う実務ツール——会議の議題、概要、参加申込シート（近日公開）。
+
+    [予定されているもの →](/ja/templates/welcome/)
+  </Card>
+  <Card title={"多言語対応"} icon="translate">
+    ページは上部とヘッダーのセレクターから複数の言語で利用できます。翻訳はAIによって生成され、明確に表示されます。常に英語版が正式なものです。
+  </Card>
+</CardGrid>

@@ -1,0 +1,58 @@
+# Single source for the home / splash page.
+#
+# Translations are AI-generated as sibling files (content/home/<locale>.yaml,
+# produced by `node scripts/translate.mjs`), and sync-content.mjs renders ALL
+# homes — English here, plus one per locale — into src/content/docs so the home
+# switches language exactly like the content pages.
+#
+# Only the *text* fields are translated. `href`, `icon`, and `variant` are
+# structural and are never translated; internal hrefs are prefixed with the
+# locale at render time (e.g. /about/welcome/ -> /it/about/welcome/).
+title: FREE Wiki
+description: >-
+  The public knowledge base for FREE — the Forum for Real Economic Emancipation.
+  Starter Kit, governance templates, and chapter examples for starting and
+  running a local assembly.
+tagline: >-
+  The public knowledge base for FREE — the Forum for Real Economic Emancipation.
+  Everything a local chapter needs to start, govern itself, and connect with the
+  network.
+language_hero_label: 🌐 Read this wiki in your language
+actions:
+  - text: Start here
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: Open the Starter Kit
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: About FREE
+    icon: information
+    body: What FREE is, how to engage, and how to read this wiki.
+    link_text: Read the orientation →
+    href: /about/welcome/
+  - title: Starter Kit
+    icon: rocket
+    body: The sequenced guide to starting a chapter — F1 and P1–P5, the first ninety days.
+    link_text: Begin with F1 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: Reference
+    icon: document
+    body: Guidance for adapting the Code of Conduct and Digital Communication Norms.
+    link_text: Browse guidance →
+    href: /reference/code-of-conduct-guidance/
+  - title: Chapters
+    icon: puzzle
+    body: Chapter-specific adaptations. Tulsa is the founding pilot.
+    link_text: See Tulsa →
+    href: /chapters/tulsa/
+  - title: Templates
+    icon: setting
+    body: Recurring-use working tools — meeting agendas, synopses, sign-up sheets (coming soon).
+    link_text: What's planned →
+    href: /templates/welcome/
+  - title: Many languages
+    icon: translate
+    body: Pages are available in several languages via the selector above and in the header. Translations are AI-generated and clearly marked; English is always authoritative.

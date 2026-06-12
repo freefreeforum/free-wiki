@@ -1,0 +1,47 @@
+language: th
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: FREE Wiki
+description: ฐานความรู้สาธารณะของ FREE — เวทีเพื่อการปลดปล่อยทางเศรษฐกิจที่แท้จริง (Forum for Real Economic Emancipation) ชุดเริ่มต้น เทมเพลตการบริหารจัดการ และตัวอย่างสาขาสำหรับการเริ่มต้นและดำเนินการสภาท้องถิ่น
+tagline: ฐานความรู้สาธารณะของ FREE — เวทีเพื่อการปลดปล่อยทางเศรษฐกิจที่แท้จริง (Forum for Real Economic Emancipation) ทุกสิ่งที่สาขาท้องถิ่นจำเป็นต้องใช้เพื่อเริ่มต้น บริหารจัดการตนเอง และเชื่อมต่อกับเครือข่าย
+language_hero_label: 🌐 อ่านวิกินี้ในภาษาของคุณ
+actions:
+  - text: เริ่มต้นที่นี่
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: เปิดชุดเริ่มต้น
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: เกี่ยวกับ FREE
+    icon: information
+    body: FREE คืออะไร จะเข้าร่วมได้อย่างไร และจะอ่านวิกินี้อย่างไร
+    link_text: อ่านบทแนะนำเบื้องต้น →
+    href: /about/welcome/
+  - title: ชุดเริ่มต้น
+    icon: rocket
+    body: คู่มือเรียงลำดับขั้นตอนสำหรับการเริ่มต้นสาขา — F1 และ P1–P5 เก้าสิบวันแรก
+    link_text: เริ่มต้นด้วย F1 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: เอกสารอ้างอิง
+    icon: document
+    body: แนวทางสำหรับการปรับใช้จรรยาบรรณและบรรทัดฐานการสื่อสารทางดิจิทัล
+    link_text: เรียกดูแนวทาง →
+    href: /reference/code-of-conduct-guidance/
+  - title: สาขา
+    icon: puzzle
+    body: การปรับใช้เฉพาะสาขา Tulsa เป็นสาขานำร่องแรกเริ่ม
+    link_text: ดู Tulsa →
+    href: /chapters/tulsa/
+  - title: เทมเพลต
+    icon: setting
+    body: เครื่องมือใช้งานที่ใช้ซ้ำเป็นประจำ — วาระการประชุม บทสรุป ใบลงชื่อ (เร็วๆ นี้)
+    link_text: สิ่งที่วางแผนไว้ →
+    href: /templates/welcome/
+  - title: หลายภาษา
+    icon: translate
+    body: หน้าต่างๆ มีให้บริการในหลายภาษาผ่านตัวเลือกด้านบนและในส่วนหัว คำแปลสร้างขึ้นโดย AI และมีการระบุไว้อย่างชัดเจน ภาษาอังกฤษเป็นฉบับที่ถือเป็นหลักเสมอ

@@ -1,0 +1,47 @@
+language: fr
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: FREE Wiki
+description: La base de connaissances publique de FREE — le Forum pour une véritable émancipation économique. Kit de démarrage, modèles de gouvernance et exemples de sections pour fonder et animer une assemblée locale.
+tagline: La base de connaissances publique de FREE — le Forum pour une véritable émancipation économique. Tout ce dont une section locale a besoin pour démarrer, se gouverner et se relier au réseau.
+language_hero_label: 🌐 Lire ce wiki dans votre langue
+actions:
+  - text: Commencer ici
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: Ouvrir le kit de démarrage
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: À propos de FREE
+    icon: information
+    body: Ce qu'est FREE, comment s'engager et comment lire ce wiki.
+    link_text: Lire l'orientation →
+    href: /about/welcome/
+  - title: Kit de démarrage
+    icon: rocket
+    body: Le guide séquencé pour fonder une section — F1 et P1–P5, les quatre-vingt-dix premiers jours.
+    link_text: Commencer par F1 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: Référence
+    icon: document
+    body: Conseils pour adapter le Code de conduite et les Normes de communication numérique.
+    link_text: Parcourir les conseils →
+    href: /reference/code-of-conduct-guidance/
+  - title: Sections
+    icon: puzzle
+    body: Adaptations propres à chaque section. Tulsa est le projet pilote fondateur.
+    link_text: Voir Tulsa →
+    href: /chapters/tulsa/
+  - title: Modèles
+    icon: setting
+    body: Outils de travail à usage récurrent — ordres du jour de réunion, comptes rendus, feuilles d'inscription (à venir).
+    link_text: Ce qui est prévu →
+    href: /templates/welcome/
+  - title: Plusieurs langues
+    icon: translate
+    body: Les pages sont disponibles en plusieurs langues grâce au sélecteur ci-dessus et dans l'en-tête. Les traductions sont générées par IA et clairement signalées ; la version anglaise fait toujours foi.

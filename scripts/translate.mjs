@@ -18,6 +18,7 @@ import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from '
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
+import { parse as parseYaml, stringify as toYaml } from 'yaml';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = join(ROOT, 'content');
@@ -31,15 +32,25 @@ const CONCURRENCY = 1;
 const MAX_TOKENS = 3800; // < 4,000 OTPM so requests are admitted
 const TODAY = '2026-06-12';
 
-// Target languages (English is the canonical source, not a target).
-const LANGUAGES = [
-  { code: 'it', name: 'Italian' },
-  { code: 'es', name: 'Spanish' },
-  { code: 'pt', name: 'Portuguese' },
-  { code: 'de', name: 'German' },
-  { code: 'fr', name: 'French' },
-  { code: 'zh-Hans', name: 'Simplified Chinese' },
-];
+// Target languages are read from config/languages.yaml (the single source), so
+// adding a language there is all that's needed — this list grows automatically.
+// English is the canonical source, not a target. The English-language name (used
+// only to tell the model which language to translate into) is derived from the
+// code via Intl.DisplayNames.
+const englishName = (code) => {
+  try {
+    return new Intl.DisplayNames(['en'], { type: 'language' }).of(code) ?? code;
+  } catch {
+    return code;
+  }
+};
+const { languages: ALL_LANGS } = parseYaml(
+  readFileSync(join(ROOT, 'config', 'languages.yaml'), 'utf8')
+);
+const LANGUAGES = ALL_LANGS.filter((l) => !l.default).map((l) => ({
+  code: l.code,
+  name: englishName(l.code),
+}));
 
 // The demo subset proves the multilingual capability end to end without
 // translating all 16 docs (per the migration manifest's demo shortcut).
@@ -181,6 +192,78 @@ async function translateOne(en, lang) {
   return outPath;
 }
 
+// --- Home / splash translation (structured strings) ------------------------
+const HOME_DIR = join(CONTENT, 'home');
+const HOME_EN = join(HOME_DIR, 'en.yaml');
+
+const HOME_SYSTEM = `You are an expert translator localizing the home page of a public civic-organizing knowledge base (the "FREE Wiki").
+
+You are given a JSON object of UI strings. Translate the string VALUES into the target language and return JSON with the exact same shape and keys.
+
+Rules:
+- Do NOT translate the project/organization names "FREE" and "FREE Foundation". Do NOT translate document identifiers like F1, P1, P5.
+- Keep place names (e.g. "Tulsa") as in the source.
+- Preserve any emoji and any "→" arrow characters exactly where they appear.
+- Render the political/organizing vocabulary the way a real local chapter in the target language would.
+- Output ONLY the JSON object. No preamble, no explanation, no code fences.`;
+
+function homePayload(home) {
+  return {
+    title: home.title,
+    description: home.description,
+    tagline: home.tagline,
+    language_hero_label: home.language_hero_label,
+    actions: home.actions.map((a) => a.text),
+    cards: home.cards.map((c) =>
+      c.link_text === undefined ? { title: c.title, body: c.body } : { title: c.title, body: c.body, link_text: c.link_text }
+    ),
+  };
+}
+
+async function translateHomeOne(lang) {
+  const home = parseYaml(readFileSync(HOME_EN, 'utf8'));
+  const payload = homePayload(home);
+  const msg = await client.messages.create({
+    model: MODEL,
+    max_tokens: 3000,
+    system: HOME_SYSTEM,
+    messages: [
+      {
+        role: 'user',
+        content: `Translate the string values of this JSON into ${lang.name}. Return JSON with identical keys and structure.\n\n${JSON.stringify(payload, null, 2)}`,
+      },
+    ],
+  });
+  let text = msg.content.filter((b) => b.type === 'text').map((b) => b.text).join('').trim();
+  if (text.startsWith('```')) text = text.replace(/^```[^\n]*\n/, '').replace(/\n```\s*$/, '').trim();
+  const t = JSON.parse(text);
+
+  // Rebuild the full home structure: translated text + structural fields copied
+  // from English (href/icon/variant are never translated), plus the
+  // unverified-translation metadata the renderer keys off of.
+  const out = {
+    language: lang.code,
+    status: 'translation',
+    translation_of: 'home/en.yaml',
+    translation_method: 'ai-generated',
+    human_verified: false,
+    title: t.title,
+    description: t.description,
+    tagline: t.tagline,
+    language_hero_label: t.language_hero_label,
+    actions: home.actions.map((a, i) => ({ ...a, text: t.actions[i] })),
+    cards: home.cards.map((c, i) => {
+      const tc = t.cards[i] || {};
+      const merged = { ...c, title: tc.title ?? c.title, body: tc.body ?? c.body };
+      if (c.link_text !== undefined && tc.link_text !== undefined) merged.link_text = tc.link_text;
+      return merged;
+    }),
+  };
+  const outPath = join(HOME_DIR, `${lang.code}.yaml`);
+  writeFileSync(outPath, toYaml(out, { lineWidth: 0 }), 'utf8');
+  return outPath;
+}
+
 // --- Simple concurrency pool ----------------------------------------------
 async function runPool(tasks, limit) {
   let i = 0;
@@ -220,8 +303,18 @@ for (const en of selected) {
   }
 }
 
+// Always include the home/splash page (the landing page) so it localizes too,
+// independent of the demo subset — its chips are useless if the home is English.
+if (existsSync(HOME_EN)) {
+  for (const lang of LANGUAGES) {
+    const outPath = join(HOME_DIR, `${lang.code}.yaml`);
+    if (!force && existsSync(outPath)) continue;
+    tasks.push({ label: `home -> ${lang.code}`, run: () => translateHomeOne(lang) });
+  }
+}
+
 console.log(
-  `Translating ${selected.length} doc(s) into ${LANGUAGES.length} languages ` +
+  `Translating ${selected.length} doc(s) + home into ${LANGUAGES.length} languages ` +
     `(${tasks.length} file(s) to generate)${doAll ? '' : ' [demo subset]'}...`
 );
 if (tasks.length === 0) {

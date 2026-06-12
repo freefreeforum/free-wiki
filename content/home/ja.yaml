@@ -1,0 +1,47 @@
+language: ja
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: FREE Wiki
+description: FREE（真の経済的解放のためのフォーラム）の公開ナレッジベース。地域の集会を立ち上げ運営するためのスターターキット、ガバナンスのテンプレート、支部の事例を提供します。
+tagline: FREE（真の経済的解放のためのフォーラム）の公開ナレッジベース。地域支部が立ち上げ、自治を行い、ネットワークとつながるために必要なすべてを揃えています。
+language_hero_label: 🌐 このwikiをあなたの言語で読む
+actions:
+  - text: ここから始める
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: スターターキットを開く
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: FREEについて
+    icon: information
+    body: FREEとは何か、どう関わるか、そしてこのwikiの読み方。
+    link_text: オリエンテーションを読む →
+    href: /about/welcome/
+  - title: スターターキット
+    icon: rocket
+    body: 支部立ち上げのための順を追ったガイド——F1とP1〜P5、最初の90日間。
+    link_text: F1から始める →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: リファレンス
+    icon: document
+    body: 行動規範とデジタルコミュニケーション規範を適応させるための手引き。
+    link_text: 手引きを見る →
+    href: /reference/code-of-conduct-guidance/
+  - title: 支部
+    icon: puzzle
+    body: 支部ごとの適応事例。Tulsaが創設パイロットです。
+    link_text: Tulsaを見る →
+    href: /chapters/tulsa/
+  - title: テンプレート
+    icon: setting
+    body: 繰り返し使う実務ツール——会議の議題、概要、参加申込シート（近日公開）。
+    link_text: 予定されているもの →
+    href: /templates/welcome/
+  - title: 多言語対応
+    icon: translate
+    body: ページは上部とヘッダーのセレクターから複数の言語で利用できます。翻訳はAIによって生成され、明確に表示されます。常に英語版が正式なものです。

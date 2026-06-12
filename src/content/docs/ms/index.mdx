@@ -1,0 +1,60 @@
+---
+title: Wiki FREE
+description: Pangkalan pengetahuan awam untuk FREE — Forum untuk Pembebasan Ekonomi Sebenar. Kit Permulaan, templat tadbir urus, dan contoh cawangan untuk memulakan dan menjalankan perhimpunan tempatan.
+template: splash
+hero:
+  tagline: Pangkalan pengetahuan awam untuk FREE — Forum untuk Pembebasan Ekonomi Sebenar. Segala yang diperlukan oleh sesebuah cawangan tempatan untuk bermula, mentadbir diri, dan berhubung dengan rangkaian.
+  actions:
+    - text: Mulakan di sini
+      link: /ms/about/welcome/
+      icon: right-arrow
+      variant: primary
+    - text: Buka Kit Permulaan
+      link: /ms/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: ms
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 Baca wiki ini dalam bahasa anda"} />
+
+<CardGrid>
+  <Card title={"Mengenai FREE"} icon="information">
+    Apa itu FREE, cara melibatkan diri, dan cara membaca wiki ini.
+
+    [Baca panduan orientasi →](/ms/about/welcome/)
+  </Card>
+  <Card title={"Kit Permulaan"} icon="rocket">
+    Panduan berturutan untuk memulakan sesebuah cawangan — F1 dan P1–P5, sembilan puluh hari pertama.
+
+    [Mulakan dengan F1 →](/ms/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"Rujukan"} icon="document">
+    Panduan untuk menyesuaikan Tata Kelakuan dan Norma Komunikasi Digital.
+
+    [Layari panduan →](/ms/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"Cawangan"} icon="puzzle">
+    Penyesuaian khusus cawangan. Tulsa ialah perintis pengasas.
+
+    [Lihat Tulsa →](/ms/chapters/tulsa/)
+  </Card>
+  <Card title={"Templat"} icon="setting">
+    Alat kerja kegunaan berulang — agenda mesyuarat, ringkasan, helaian pendaftaran (akan datang).
+
+    [Apa yang dirancang →](/ms/templates/welcome/)
+  </Card>
+  <Card title={"Pelbagai bahasa"} icon="translate">
+    Halaman tersedia dalam beberapa bahasa melalui pemilih di atas dan dalam pengepala. Terjemahan dijana oleh AI dan ditanda dengan jelas; versi Bahasa Inggeris sentiasa berautoriti.
+  </Card>
+</CardGrid>

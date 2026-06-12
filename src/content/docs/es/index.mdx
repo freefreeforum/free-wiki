@@ -1,0 +1,60 @@
+---
+title: Wiki de FREE
+description: La base de conocimiento pública de FREE — el Foro por la Emancipación Económica Real. Kit de Inicio, plantillas de gobernanza y ejemplos de capítulos para iniciar y gestionar una asamblea local.
+template: splash
+hero:
+  tagline: La base de conocimiento pública de FREE — el Foro por la Emancipación Económica Real. Todo lo que un capítulo local necesita para iniciarse, gobernarse a sí mismo y conectarse con la red.
+  actions:
+    - text: Comienza aquí
+      link: /es/about/welcome/
+      icon: right-arrow
+      variant: primary
+    - text: Abre el Kit de Inicio
+      link: /es/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: es
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 Lee esta wiki en tu idioma"} />
+
+<CardGrid>
+  <Card title={"Acerca de FREE"} icon="information">
+    Qué es FREE, cómo participar y cómo leer esta wiki.
+
+    [Lee la orientación →](/es/about/welcome/)
+  </Card>
+  <Card title={"Kit de Inicio"} icon="rocket">
+    La guía secuenciada para iniciar un capítulo — F1 y P1–P5, los primeros noventa días.
+
+    [Empieza con F1 →](/es/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"Referencia"} icon="document">
+    Orientación para adaptar el Código de Conducta y las Normas de Comunicación Digital.
+
+    [Explora la orientación →](/es/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"Capítulos"} icon="puzzle">
+    Adaptaciones específicas de cada capítulo. Tulsa es el piloto fundador.
+
+    [Ver Tulsa →](/es/chapters/tulsa/)
+  </Card>
+  <Card title={"Plantillas"} icon="setting">
+    Herramientas de trabajo de uso recurrente — órdenes del día de reuniones, resúmenes, hojas de inscripción (próximamente).
+
+    [Lo que está planeado →](/es/templates/welcome/)
+  </Card>
+  <Card title={"Muchos idiomas"} icon="translate">
+    Las páginas están disponibles en varios idiomas mediante el selector de arriba y en el encabezado. Las traducciones son generadas por IA y están claramente marcadas; el inglés siempre es la versión autorizada.
+  </Card>
+</CardGrid>

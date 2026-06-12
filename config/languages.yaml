@@ -27,3 +27,18 @@ languages:
   - code: zh-Hans
     name: 简体中文
     direction: ltr
+  - code: th
+    name: ไทย
+    direction: ltr
+  - code: hi
+    name: हिन्दी
+    direction: ltr
+  - code: ne
+    name: नेपाली
+    direction: ltr
+  - code: ms
+    name: Bahasa Melayu
+    direction: ltr
+  - code: ja
+    name: 日本語
+    direction: ltr

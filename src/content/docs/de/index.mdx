@@ -1,0 +1,60 @@
+---
+title: FREE Wiki
+description: Die öffentliche Wissensdatenbank für FREE – das Forum for Real Economic Emancipation. Starter-Kit, Governance-Vorlagen und Beispiele von Ortsgruppen zum Aufbau und Betrieb einer lokalen Versammlung.
+template: splash
+hero:
+  tagline: Die öffentliche Wissensdatenbank für FREE – das Forum for Real Economic Emancipation. Alles, was eine Ortsgruppe braucht, um zu starten, sich selbst zu organisieren und sich mit dem Netzwerk zu verbinden.
+  actions:
+    - text: Hier beginnen
+      link: /de/about/welcome/
+      icon: right-arrow
+      variant: primary
+    - text: Das Starter-Kit öffnen
+      link: /de/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: de
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 Lies dieses Wiki in deiner Sprache"} />
+
+<CardGrid>
+  <Card title={"Über FREE"} icon="information">
+    Was FREE ist, wie du dich einbringen kannst und wie du dieses Wiki liest.
+
+    [Zur Orientierung →](/de/about/welcome/)
+  </Card>
+  <Card title={"Starter-Kit"} icon="rocket">
+    Die schrittweise Anleitung zum Aufbau einer Ortsgruppe – F1 und P1–P5, die ersten neunzig Tage.
+
+    [Mit F1 beginnen →](/de/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"Referenz"} icon="document">
+    Hinweise zur Anpassung des Verhaltenskodex und der Normen für digitale Kommunikation.
+
+    [Hinweise durchsehen →](/de/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"Ortsgruppen"} icon="puzzle">
+    Ortsgruppen-spezifische Anpassungen. Tulsa ist das Gründungs-Pilotprojekt.
+
+    [Tulsa ansehen →](/de/chapters/tulsa/)
+  </Card>
+  <Card title={"Vorlagen"} icon="setting">
+    Wiederkehrend genutzte Arbeitsmittel – Sitzungsagenden, Zusammenfassungen, Anmeldelisten (in Kürze verfügbar).
+
+    [Was geplant ist →](/de/templates/welcome/)
+  </Card>
+  <Card title={"Viele Sprachen"} icon="translate">
+    Seiten sind über die Auswahl oben und im Kopfbereich in mehreren Sprachen verfügbar. Übersetzungen sind KI-generiert und klar gekennzeichnet; das Englische ist stets maßgeblich.
+  </Card>
+</CardGrid>
