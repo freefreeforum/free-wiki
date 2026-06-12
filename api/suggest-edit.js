@@ -4,10 +4,13 @@
 //
 // The GitHub token is read ONLY from the GITHUB_TOKEN environment variable
 // (set in the Vercel project settings) — never hardcoded, never committed.
-// A fine-grained token with Issues: read & write on basilchilders/free-wiki is
-// sufficient.
+// A fine-grained token with Issues: read & write on the target repo (GITHUB_REPO,
+// below) is sufficient.
 
-const REPO = 'basilchilders/free-wiki';
+// Target repository in "owner/repo" form. Read from the GITHUB_REPO environment
+// variable so a future repo move/transfer is a config change (set it in Vercel)
+// rather than a code edit. Falls back to the current org repo if unset.
+const REPO = (process.env.GITHUB_REPO || 'freefreeforum/free-wiki').trim();
 const TYPE_LABELS = {
   typo: 'Typo or wording',
   factual: 'Factual correction',
