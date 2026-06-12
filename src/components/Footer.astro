@@ -1,0 +1,15 @@
+---
+// Override of Starlight's page Footer: render Starlight's default footer
+// (edit link, last-updated, pagination) unchanged, then append the
+// "Suggest an edit" affordance so it appears subtly at the bottom of every doc
+// page, including translated ones.
+import Default from '@astrojs/starlight/components/Footer.astro';
+import SuggestEdit from './SuggestEdit.astro';
+
+// The home splash is a generated landing page, not an editable document, so
+// the suggestion affordance only appears on real doc pages.
+const isSplash = Astro.locals.starlightRoute.entry.data.template === 'splash';
+---
+
+<Default />
+{!isSplash && <SuggestEdit />}
