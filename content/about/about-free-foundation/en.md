@@ -3,6 +3,7 @@ title: About FREE Foundation
 section: about
 language: en
 status: published
+version: "0.2"
 last_updated: 2026-06-12
 ---
 
@@ -32,7 +33,10 @@ The Foundation does not direct chapters. Chapters are sovereign in their local w
 FREE Foundation is led by a **Board of Directors**, currently composed of seven members:
 
 - **Clara Mattei**, Board Chair and President
-- **Three global academic board members**, drawn from FREE's broader intellectual and movement network
+- **Three global academic board members**, drawn from FREE's broader intellectual and movement network:
+    - **Camila Vergara**, critical legal and political theorist, Senior Lecturer at the University of Essex, and author of *Systemic Corruption: Constitutional Ideas for an Anti-Oligarchic Republic*
+    - **David McNally**, Cullen Distinguished Professor of History and Business at the University of Houston and a political economist of capitalism
+    - **Homa Zarghamee**, Chair and Professor of Economics at Barnard College and a behavioral and experimental economist
 - **Three local Tulsa community board members**, currently selected by the Tulsa General Assembly through a rotating election process
 
 This board composition reflects the Foundation's origin as the legal entity grown out of the founding Tulsa pilot. The structure has worked well during FREE's early phase, when the Foundation and the Tulsa Assembly were closely entwined. As the network globalizes, this structure will evolve.

@@ -4,7 +4,7 @@ identifier: p2
 section: starter-kit
 language: en
 status: published
-version: "0.1"
+version: "0.2"
 last_updated: 2026-06-12
 ---
 
@@ -23,6 +23,8 @@ Read F1 (What Is a FREE Chapter?) and P1 (Seed Team Checklist) before this docum
 ## What the First Event Is For
 
 The first event has one essential purpose: to draw together a room of people who are angry about something local and economic, give them language and a frame for that anger, and offer them a concrete way to keep meeting after the event ends.
+
+A FREE event is also a moment of conviviality. People come to organize, and they come to be together. Much of modern economic life isolates us from one another, and part of what FREE does is help people relearn the joy of being in a room together: sharing food, talking, listening, laughing. The event should feel like a gathering, not a lecture. This is why food, music, and a warm atmosphere matter as much as the speakers. Providing food for free, rather than charging for it, signals that this is a space of generosity and shared life. Where a chapter can offer free childcare during the event, it should, because the people most affected by economic injustice are often the people least able to attend an evening event without it. Removing that barrier is itself part of the work.
 
 Everything else about the event is secondary to those three things. The food matters, the speakers matter, the venue matters, but they matter in service of the room and the sign-up sheet.
 

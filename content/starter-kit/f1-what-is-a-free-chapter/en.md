@@ -4,7 +4,7 @@ identifier: f1
 section: starter-kit
 language: en
 status: published
-version: "0.1"
+version: "0.2"
 last_updated: 2026-06-12
 ---
 
@@ -14,7 +14,7 @@ last_updated: 2026-06-12
 
 ## Purpose of This Document
 
-This is the first document in the FREE Chapter Starter Kit. It defines what a FREE chapter is, what FREE Foundation provides, what each chapter is responsible for, and what people considering starting a chapter should honestly expect.
+This is the first document in the FREE Chapter Starter Kit. It defines what a FREE chapter is, what FREE Foundation provides, what each chapter is responsible for, and what people considering starting a chapter can expect.
 
 For the legal and governance structure of FREE Foundation itself, see *About FREE Foundation* in the About FREE collection.
 
@@ -55,15 +55,16 @@ FREE Foundation is the legal entity that holds the global infrastructure support
 - **Remote training and support**, including onboarding calls for Seed Teams, Q&A sessions for established chapters, and direct connection to experienced organizers from other chapters
 - **Promotion through global channels**, including the newsletter, social media, and global G+Local sessions, which surface chapter events and amplify reach
 - **Federation infrastructure**, including cross-chapter forums, working groups (the Tech Cohort, the Education Working Group, and others as they form), and shared learning across the network
+- **Connections to an intellectual network**, including critical academics and researchers, and help finding good speakers on the topics a chapter wants to explore. Clara Mattei and others in the network can sometimes join chapter events directly.
 - **A global frame**, which gives local work a wider context and connects local action to the broader struggle
+
+Chapters bring their own local knowledge to this exchange. A chapter connects FREE with the organizers, communities, and movements active in its own place, and that local rootedness is what the wider network draws on in return.
 
 A chapter that starts with FREE inherits institutional infrastructure that the Tulsa founders had to build from scratch. This is a meaningful head start.
 
 ---
 
 ## What FREE Foundation Does Not Provide
-
-Being honest about this is more important than being generous.
 
 FREE Foundation does not provide funding for chapter events. The Tulsa pilot was catalyzed by a major grant that covered event production, food, and PR costs for public-facing events. Most chapters will operate without that subsidy. Each chapter is responsible for its own local resources, including venues, food, materials, and any costs associated with running events.
 
@@ -93,11 +94,11 @@ The Tulsa General Assembly has run bi-weekly since the chapter's founding, with 
 
 The practical question is: what does a chapter need to actually function?
 
-The honest answer is a **Seed Team**: a small group of three to five people who commit to the first 60 to 90 days of work, before broader chapter structure is in place. The composition matters more than the headcount. Different roles within the Seed Team handle different parts of the early work.
+A chapter needs a **Seed Team**: a small group of three to five people who commit to the first 60 to 90 days of work, before broader chapter structure is in place. The composition matters more than the headcount. Different roles within the Seed Team handle different parts of the early work.
 
 A workable Seed Team usually includes at least three capacities, which may be held by three different people or by overlapping members:
 
-- **A catalyst**: someone with local credibility who can draw a room. Often an academic, organizer, public-facing professional, or community figure. Their voice and presence anchor the initial public moment.
+- **A convening role**: someone who helps draw the first room together, through their relationships and their commitment to the work. This is about the function of gathering people, not about status or public profile. Anyone willing to invite their networks, speak to why this matters, and help others feel welcome can hold this role.
 - **An organizer**: someone with the time, judgment, and follow-through to handle logistics. Plans events, follows up with people, holds the relational threads of the early group.
 - **An operations person**: someone with comfort using shared documents, forms, email lists, and basic tech tools. Manages the contact list, the meeting agendas, the documentation.
 
@@ -118,7 +119,7 @@ The Seed Team Checklist (P1) walks through these readiness questions in detail.
 
 ## The Chapter Lifecycle
 
-A FREE chapter typically moves through a sequence of phases. These phases are flexible, and chapters may move faster or slower depending on local conditions. Most successful chapters follow some version of this arc:
+The sequence below is a very rough guideline, not a fixed path. Every chapter can modify it, reorder it, skip parts, or invent its own version. Chapters move at different speeds and shape their founding differently depending on local conditions. Treat what follows as one possible arc that has worked, offered to give you a starting picture, not a template you are expected to follow step by step:
 
 1. **Seed Team formation** (weeks 0-2): Founding group identifies itself, completes readiness check, coordinates with FREE Foundation, begins planning first public event.
 2. **First public event** (weeks 3-4): Public-facing event with speakers, food, and a sign-up sheet. Audience members are invited explicitly to the first General Assembly.
@@ -138,7 +139,7 @@ One practice runs through every phase of the chapter lifecycle and deserves to b
 
 Documentation is what makes a chapter durable. Memory held only in people's heads is fragile. When someone leaves, burns out, or steps back, the chapter loses what they carried. Documented decisions, agendas, and synopses survive turnover and create the institutional memory that makes long-term work possible.
 
-Documentation is also what makes the FREE network actually a network. Chapters that share meeting synopses with the wider FREE community generate cross-chapter learning. A campaign that worked in Bremen might be exactly what a chapter in Lagos is trying to figure out. The synopsis is the unit of exchange.
+Documentation is also what makes the FREE network actually a network. Chapters that share meeting synopses with the wider FREE community generate cross-chapter learning. A campaign that worked in one city might be exactly what a chapter on the other side of the world is trying to figure out. The synopsis is the unit of exchange.
 
 The minimum documentation expectation for every chapter:
 

@@ -12,7 +12,7 @@ The wiki is organized into five collections, listed in the left sidebar.
 
 **Reference Documents** holds the governance templates and the guidance for adapting them: Code of Conduct, Digital Communication Norms, and the companion documents that explain what each section is for, what's load-bearing, and where chapters have real latitude to make the documents their own.
 
-**Chapter Versions** is where adapted documents from individual chapters live. Tulsa is the seed pilot, and its versions sit here alongside the emerging versions from Zurich, Hamburg, Turin, and other chapters as they form. Each chapter's variants are their own.
+**Chapter Versions** is where adapted documents from individual chapters live. Tulsa is the seed pilot, and its versions sit here alongside the emerging versions from Zurich, Bishop's Stortford, Turin, and other chapters as they form. Each chapter's variants are their own.
 
 **Templates** holds meeting agendas, synopsis formats, sign-up sheet structures, and the other working tools chapters use day to day. This collection grows as the network grows.
 
