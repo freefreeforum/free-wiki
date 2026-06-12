@@ -1,0 +1,60 @@
+---
+title: FREE Wiki
+description: מאגר הידע הציבורי של FREE — הפורום לשחרור כלכלי אמיתי. ערכת התחלה, תבניות ממשל ודוגמאות שלוחות להקמה ולהפעלה של אספה מקומית.
+template: splash
+hero:
+  tagline: מאגר הידע הציבורי של FREE — הפורום לשחרור כלכלי אמיתי. כל מה ששלוחה מקומית צריכה כדי להתחיל, לנהל את עצמה ולהתחבר לרשת.
+  actions:
+    - text: התחילו כאן
+      link: /he/about/welcome/
+      icon: left-arrow
+      variant: primary
+    - text: פתחו את ערכת ההתחלה
+      link: /he/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: he
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 קראו את הוויקי הזה בשפה שלכם"} />
+
+<CardGrid>
+  <Card title={"אודות FREE"} icon="information">
+    מה זה FREE, איך מתערבים ואיך קוראים את הוויקי הזה.
+
+    [קראו את ההכוונה ←](/he/about/welcome/)
+  </Card>
+  <Card title={"ערכת התחלה"} icon="rocket">
+    המדריך המסודר להקמת שלוחה — F1 ו-P1–P5, תשעים הימים הראשונים.
+
+    [התחילו עם F1 ←](/he/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"מקורות עזר"} icon="document">
+    הנחיות להתאמת קוד ההתנהגות ונורמות התקשורת הדיגיטלית.
+
+    [עיינו בהנחיות ←](/he/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"שלוחות"} icon="puzzle">
+    התאמות ייחודיות לשלוחות. טולסה היא הפיילוט המייסד.
+
+    [ראו את טולסה ←](/he/chapters/tulsa/)
+  </Card>
+  <Card title={"תבניות"} icon="setting">
+    כלי עבודה לשימוש חוזר — סדרי יום לישיבות, תקצירים, גיליונות הרשמה (בקרוב).
+
+    [מה מתוכנן ←](/he/templates/welcome/)
+  </Card>
+  <Card title={"שפות רבות"} icon="translate">
+    העמודים זמינים בכמה שפות באמצעות הבורר שלמעלה ובכותרת. התרגומים נוצרים על ידי בינה מלאכותית ומסומנים בבירור; האנגלית היא תמיד הגרסה המחייבת.
+  </Card>
+</CardGrid>

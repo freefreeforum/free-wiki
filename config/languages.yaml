@@ -42,3 +42,9 @@ languages:
   - code: ja
     name: 日本語
     direction: ltr
+  - code: he
+    name: עברית
+    direction: rtl
+  - code: ar
+    name: العربية
+    direction: rtl

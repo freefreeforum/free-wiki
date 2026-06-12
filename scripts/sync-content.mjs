@@ -47,6 +47,7 @@ const { languages: CFG_LANGS } = parseYaml(
 );
 const LOCALES = CFG_LANGS.map((l) => l.code);
 const NON_ROOT_LOCALES = LOCALES.filter((l) => l !== 'en');
+const DIRECTION = Object.fromEntries(CFG_LANGS.map((l) => [l.code, l.direction || 'ltr']));
 
 // --- Discover every content file -----------------------------------------
 function walk(dir, acc = []) {
@@ -159,6 +160,15 @@ function renderHome(home, lang) {
   const comp = (name) => `${'../'.repeat(depth)}components/${name}`;
   const isTranslation = !lang.isDefault && home.translation_method === 'ai-generated';
 
+  // In right-to-left locales, "forward/continue" arrows must point the other way.
+  // Starlight's chrome mirrors automatically via dir=rtl, but these icons/glyphs
+  // are our own content, so flip them here.
+  const isRtl = DIRECTION[lang.code] === 'rtl';
+  const flipIcon = (icon) =>
+    isRtl ? (icon === 'right-arrow' ? 'left-arrow' : icon === 'left-arrow' ? 'right-arrow' : icon) : icon;
+  const flipArrows = (s) =>
+    isRtl ? String(s).replace(/[→←]/g, (m) => (m === '→' ? '←' : '→')) : s;
+
   const fm = {
     title: home.title,
     description: home.description,
@@ -168,7 +178,7 @@ function renderHome(home, lang) {
       actions: home.actions.map((a) => ({
         text: a.text,
         link: localizeHref(a.href, localeSeg),
-        icon: a.icon,
+        icon: flipIcon(a.icon),
         variant: a.variant,
       })),
     },
@@ -198,7 +208,7 @@ function renderHome(home, lang) {
     b.push(`    ${c.body}`);
     if (c.link_text && c.href) {
       b.push('');
-      b.push(`    [${c.link_text}](${localizeHref(c.href, localeSeg)})`);
+      b.push(`    [${flipArrows(c.link_text)}](${localizeHref(c.href, localeSeg)})`);
     }
     b.push('  </Card>');
   }

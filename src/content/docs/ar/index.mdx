@@ -1,0 +1,60 @@
+---
+title: ويكي FREE
+description: قاعدة المعرفة العامة لـ FREE — منتدى التحرر الاقتصادي الحقيقي. عُدّة البدء، وقوالب الحوكمة، وأمثلة الفروع لتأسيس وإدارة جمعية محلية.
+template: splash
+hero:
+  tagline: قاعدة المعرفة العامة لـ FREE — منتدى التحرر الاقتصادي الحقيقي. كل ما يحتاجه الفرع المحلي للبدء، وإدارة نفسه ذاتياً، والتواصل مع الشبكة.
+  actions:
+    - text: ابدأ من هنا
+      link: /ar/about/welcome/
+      icon: left-arrow
+      variant: primary
+    - text: افتح عُدّة البدء
+      link: /ar/starter-kit/f1-what-is-a-free-chapter/
+      icon: open-book
+      variant: minimal
+language: ar
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LanguageHero from '../../../components/LanguageHero.astro';
+import MachineTranslationNotice from '../../../components/MachineTranslationNotice.astro';
+
+<MachineTranslationNotice englishHref="/" />
+
+<LanguageHero slug="" centered label={"🌐 اقرأ هذه الويكي بلغتك"} />
+
+<CardGrid>
+  <Card title={"عن FREE"} icon="information">
+    ما هي FREE، وكيفية المشاركة، وكيفية قراءة هذه الويكي.
+
+    [اقرأ المقدمة التوجيهية ←](/ar/about/welcome/)
+  </Card>
+  <Card title={"عُدّة البدء"} icon="rocket">
+    الدليل المتسلسل لتأسيس فرع — F1 وP1–P5، التسعون يوماً الأولى.
+
+    [ابدأ بـ F1 ←](/ar/starter-kit/f1-what-is-a-free-chapter/)
+  </Card>
+  <Card title={"المراجع"} icon="document">
+    إرشادات لتكييف مدوّنة السلوك ومعايير التواصل الرقمي.
+
+    [تصفّح الإرشادات ←](/ar/reference/code-of-conduct-guidance/)
+  </Card>
+  <Card title={"الفروع"} icon="puzzle">
+    تكييفات خاصة بكل فرع. تولسا هي التجربة التأسيسية الأولى.
+
+    [شاهد تولسا ←](/ar/chapters/tulsa/)
+  </Card>
+  <Card title={"القوالب"} icon="setting">
+    أدوات عمل للاستخدام المتكرر — جداول أعمال الاجتماعات، والملخصات، وأوراق التسجيل (قريباً).
+
+    [ما هو مُخطّط له ←](/ar/templates/welcome/)
+  </Card>
+  <Card title={"لغات متعددة"} icon="translate">
+    الصفحات متاحة بعدة لغات عبر أداة الاختيار أعلاه وفي الترويسة. الترجمات مُولّدة بالذكاء الاصطناعي ومُعلّمة بوضوح؛ النص الإنجليزي هو المرجع المعتمد دائماً.
+  </Card>
+</CardGrid>

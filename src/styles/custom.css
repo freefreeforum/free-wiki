@@ -69,7 +69,12 @@
 }
 
 /* --- Frontmatter callouts (disclaimer / staleness / variant / fallback) --- */
+/* These notices are authored in English (they point readers to the English
+   original), so render them left-to-right even on RTL pages — otherwise the
+   English text right-aligns and its punctuation is displaced (e.g. a leading
+   period). LTR also keeps the accent border on the text's leading edge. */
 .fw-callout {
+  direction: ltr;
   border-inline-start: 4px solid var(--sl-color-asides-border, var(--sl-color-accent));
   border-radius: 0.25rem;
   padding: 0.75rem 1rem;

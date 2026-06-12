@@ -1,0 +1,47 @@
+language: ar
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: ويكي FREE
+description: قاعدة المعرفة العامة لـ FREE — منتدى التحرر الاقتصادي الحقيقي. عُدّة البدء، وقوالب الحوكمة، وأمثلة الفروع لتأسيس وإدارة جمعية محلية.
+tagline: قاعدة المعرفة العامة لـ FREE — منتدى التحرر الاقتصادي الحقيقي. كل ما يحتاجه الفرع المحلي للبدء، وإدارة نفسه ذاتياً، والتواصل مع الشبكة.
+language_hero_label: 🌐 اقرأ هذه الويكي بلغتك
+actions:
+  - text: ابدأ من هنا
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: افتح عُدّة البدء
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: عن FREE
+    icon: information
+    body: ما هي FREE، وكيفية المشاركة، وكيفية قراءة هذه الويكي.
+    link_text: اقرأ المقدمة التوجيهية →
+    href: /about/welcome/
+  - title: عُدّة البدء
+    icon: rocket
+    body: الدليل المتسلسل لتأسيس فرع — F1 وP1–P5، التسعون يوماً الأولى.
+    link_text: ابدأ بـ F1 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: المراجع
+    icon: document
+    body: إرشادات لتكييف مدوّنة السلوك ومعايير التواصل الرقمي.
+    link_text: تصفّح الإرشادات →
+    href: /reference/code-of-conduct-guidance/
+  - title: الفروع
+    icon: puzzle
+    body: تكييفات خاصة بكل فرع. تولسا هي التجربة التأسيسية الأولى.
+    link_text: شاهد تولسا →
+    href: /chapters/tulsa/
+  - title: القوالب
+    icon: setting
+    body: أدوات عمل للاستخدام المتكرر — جداول أعمال الاجتماعات، والملخصات، وأوراق التسجيل (قريباً).
+    link_text: ما هو مُخطّط له →
+    href: /templates/welcome/
+  - title: لغات متعددة
+    icon: translate
+    body: الصفحات متاحة بعدة لغات عبر أداة الاختيار أعلاه وفي الترويسة. الترجمات مُولّدة بالذكاء الاصطناعي ومُعلّمة بوضوح؛ النص الإنجليزي هو المرجع المعتمد دائماً.

@@ -1,0 +1,47 @@
+language: he
+status: translation
+translation_of: home/en.yaml
+translation_method: ai-generated
+human_verified: false
+title: FREE Wiki
+description: מאגר הידע הציבורי של FREE — הפורום לשחרור כלכלי אמיתי. ערכת התחלה, תבניות ממשל ודוגמאות שלוחות להקמה ולהפעלה של אספה מקומית.
+tagline: מאגר הידע הציבורי של FREE — הפורום לשחרור כלכלי אמיתי. כל מה ששלוחה מקומית צריכה כדי להתחיל, לנהל את עצמה ולהתחבר לרשת.
+language_hero_label: 🌐 קראו את הוויקי הזה בשפה שלכם
+actions:
+  - text: התחילו כאן
+    href: /about/welcome/
+    icon: right-arrow
+    variant: primary
+  - text: פתחו את ערכת ההתחלה
+    href: /starter-kit/f1-what-is-a-free-chapter/
+    icon: open-book
+    variant: minimal
+cards:
+  - title: אודות FREE
+    icon: information
+    body: מה זה FREE, איך מתערבים ואיך קוראים את הוויקי הזה.
+    link_text: קראו את ההכוונה →
+    href: /about/welcome/
+  - title: ערכת התחלה
+    icon: rocket
+    body: המדריך המסודר להקמת שלוחה — F1 ו-P1–P5, תשעים הימים הראשונים.
+    link_text: התחילו עם F1 →
+    href: /starter-kit/f1-what-is-a-free-chapter/
+  - title: מקורות עזר
+    icon: document
+    body: הנחיות להתאמת קוד ההתנהגות ונורמות התקשורת הדיגיטלית.
+    link_text: עיינו בהנחיות →
+    href: /reference/code-of-conduct-guidance/
+  - title: שלוחות
+    icon: puzzle
+    body: התאמות ייחודיות לשלוחות. טולסה היא הפיילוט המייסד.
+    link_text: ראו את טולסה →
+    href: /chapters/tulsa/
+  - title: תבניות
+    icon: setting
+    body: כלי עבודה לשימוש חוזר — סדרי יום לישיבות, תקצירים, גיליונות הרשמה (בקרוב).
+    link_text: מה מתוכנן →
+    href: /templates/welcome/
+  - title: שפות רבות
+    icon: translate
+    body: העמודים זמינים בכמה שפות באמצעות הבורר שלמעלה ובכותרת. התרגומים נוצרים על ידי בינה מלאכותית ומסומנים בבירור; האנגלית היא תמיד הגרסה המחייבת.
